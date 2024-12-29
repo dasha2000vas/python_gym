@@ -1,12 +1,12 @@
-def find_x(result):
+def move_leftmost_digit_to_right_end(number):
     """
         Data: а three-digit number
-        Task: assign the leftmost digit to the right
+        Task: move the leftmost digit to the right end of the number
     """
-    last_number = result // 100
-    return result % 100 * 10 + last_number
+    last_digit = number // 100
+    return number % 100 * 10 + last_digit
 
 
 if __name__ == "__main__":
-    result = int(input("Результат вычисления: "))
-    print("Искомое число:", find_x(result))
+    number = int(input("Number: "))
+    print("Result: ", move_leftmost_digit_to_right_end(number))

@@ -11,7 +11,7 @@ def calculate_count_of_desks(class_a, class_b, class_c):
 
 
 if __name__ == "__main__":
-    class_a = int(input("Кол-во учеников в 1A: "))
-    class_b = int(input("Кол-во учеников в 1B: "))
-    class_c = int(input("Кол-во учеников в 1C: "))
-    print(f"Требуется {calculate_count_of_desks(class_a, class_b, class_c)} парт")
+    class_a = int(input("Students in 1A: "))
+    class_b = int(input("Students in 1B: "))
+    class_c = int(input("Students in 1C: "))
+    print(f"You need {calculate_count_of_desks(class_a, class_b, class_c)} desks")

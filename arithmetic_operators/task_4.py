@@ -1,11 +1,11 @@
-def  define_third_digit_from_end(number):
+def  define_third_digit_from_end(integer):
     """
         Data: integer
         Task: define third digit from end
     """
-    return number // 100 % 10
+    return integer // 100 % 10
 
 
 if __name__ == "__main__":
-    number = int(input("Число: "))
-    print(f"Третья цифра с конца:", define_third_digit_from_end(number))
+    integer = int(input("Integer: "))
+    print(f"Third digit from end:", define_third_digit_from_end(integer))

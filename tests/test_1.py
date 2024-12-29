@@ -1,12 +1,12 @@
 from arithmetic_operators.task_1 import calculate_temperature_in_fahrenheit
 from arithmetic_operators.task_2 import find_perimeter_and_square
-from arithmetic_operators.task_3 import find_x
+from arithmetic_operators.task_3 import move_leftmost_digit_to_right_end
 from arithmetic_operators.task_4 import define_third_digit_from_end
 from arithmetic_operators.task_5 import glue_numbers
 from arithmetic_operators.task_6 import sum_of_digits
 from arithmetic_operators.task_7 import find_count_of_square_in_rectangle
 from arithmetic_operators.task_8 import find_b_in_a
-from arithmetic_operators.task_9 import find_cost_in_rubles_and_kopeks
+from arithmetic_operators.task_9 import find_cost_in_rubles_and_kopecks
 from arithmetic_operators.task_10 import count_value
 from arithmetic_operators.task_11 import count_of_cabins
 from arithmetic_operators.task_12 import calculate_count_of_desks
@@ -26,7 +26,7 @@ def test_task_2():
 
 
 def test_task_3():
-    assert find_x(237) == 372
+    assert move_leftmost_digit_to_right_end(237) == 372
 
 
 def test_task_4():
@@ -54,7 +54,7 @@ def test_task_8():
 
 
 def test_task_9():
-    r, k = find_cost_in_rubles_and_kopeks(453)
+    r, k = find_cost_in_rubles_and_kopecks(453)
     assert r == 4
     assert k == 53
 
@@ -72,10 +72,10 @@ def test_task_12():
 
 
 def test_task_13():
-    assert calculate_1(12, 45, "нет") == 117835.745
-    assert calculate_1(12, 45, "да") == 81375.794
+    assert calculate_1(12, 45, "n") == 117835.745
+    assert calculate_1(12, 45, "y") == 81375.794
 
 
 def test_task_14():
-    assert calculate_2(22, 1, 44, 27, 30, "нет") == 3499615212.824
-    assert calculate_2(22, 1, 44, 27, 30, "да") == 896228237.135
+    assert calculate_2(22, 1, 44, 27, 30, "n") == 3499615212.824
+    assert calculate_2(22, 1, 44, 27, 30, "y") == 896228237.135

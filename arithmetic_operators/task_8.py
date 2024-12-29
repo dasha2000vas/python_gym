@@ -1,17 +1,17 @@
 def find_b_in_a(a, b):
     """
-        Data: positive integers - A, B
-        Task: find how many segments B fit into segments A
+        Data: positive integers - a, b (a > b)
+        Task: find how many segments b fit into segments a
               find the length of the remaining part
     """
     if a < b:
-        raise ValueError("A не может быть меньше B")
+        raise ValueError("a must be greater than b")
     return a // b, a % b
 
 
 if __name__ == "__main__":
-    print("Введите два целых положительных числа - A и B (A > B)")
-    a = int(input("A = "))
-    b = int(input("B = "))
+    a = int(input("a = "))
+    b = int(input("b = "))
     count, remain = find_b_in_a(a, b)
-    print(f"В отрезке A вмещается {count} B, {remain} - длина оставшейся части")
+    print(count, "times b fit into a")
+    print(remain, "- length of remaining part")

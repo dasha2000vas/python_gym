@@ -1,7 +1,7 @@
 def find_count_of_square_in_rectangle(a, b, c):
     """
-        Data: rectangle with sides - A, B
-              square with side - C
+        Data: rectangle with sides - a, b
+              square with side - c
         Task: find the number of squares that can fit in the rectangle
               find the area of the remaining part
     """
@@ -10,10 +10,9 @@ def find_count_of_square_in_rectangle(a, b, c):
 
 
 if __name__ == '__main__':
-    print("Введите числа a и b (стороны прямоугольника), с (сторона квадрата)")
-    a = int(input("A = "))
-    b = int(input("B = "))
-    c = int(input("C = "))
-    count, square = find_count_of_square_in_rectangle(a, b, c)
-    print(count, "квадратиков")
-    print(square, "- площадь оставшейся части")
+    a = int(input("a = "))
+    b = int(input("b = "))
+    c = int(input("c = "))
+    count, remain = find_count_of_square_in_rectangle(a, b, c)
+    print(count, "squares")
+    print(remain, "- area of the remaining part")

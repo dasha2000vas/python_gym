@@ -16,7 +16,6 @@ def find_perimeter_and_square(x1, x2, x3, y1, y2, y3):
 
 
 if __name__ == "__main__":
-    print("Введите значения координат вершин треугольника:")
     x1 = int(input("x1 = "))
     x2 = int(input("x2 = "))
     x3 = int(input("x3 = "))
@@ -24,5 +23,5 @@ if __name__ == "__main__":
     y2 = int(input("y2 = "))
     y3 = int(input("y3 = "))
     perimeter, square = find_perimeter_and_square(x1, x2, x3, y1, y2, y3)
-    print("Периметр=", perimeter)
-    print("Площадь=", square)
+    print("Perimeter=", perimeter)
+    print("Square=", square)
