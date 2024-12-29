@@ -2,6 +2,10 @@ from math import trunc
 
 
 def calculate_temperature_in_fahrenheit(TC):
+    """
+        Data: temperature value in degrees Celsius
+        Task: find its temperature value in degrees Fahrenheit
+    """
     return trunc(TC * 9 / 5 + 32)
 
 

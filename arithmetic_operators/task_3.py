@@ -1,4 +1,8 @@
 def find_x(result):
+    """
+        Data: а three-digit number
+        Task: assign the leftmost digit to the right
+    """
     last_number = result // 100
     return result % 100 * 10 + last_number
 

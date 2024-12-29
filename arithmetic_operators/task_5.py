@@ -1,4 +1,8 @@
 def glue_numbers(a, b):
+    """
+        Data: two three-digit numbers (a, b)
+        Task: glue those numbers
+    """
     if len(str(a)) != 3 or len(str(b)) != 3:
         raise ValueError("Числа a и b должны быть трёхзначными!")
     return a * 1000 + b

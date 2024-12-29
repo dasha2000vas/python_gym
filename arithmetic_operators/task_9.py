@@ -1,4 +1,8 @@
 def find_cost_in_rubles_and_kopeks(cost):
+    """
+       Data: cost of the product in kopecks
+       Task: find cost in rubles and kopecks
+    """
     return cost // 100, cost % 100
 
 

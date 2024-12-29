@@ -1,4 +1,9 @@
 def find_b_in_a(a, b):
+    """
+        Data: positive integers - A, B
+        Task: find how many segments B fit into segments A
+              find the length of the remaining part
+    """
     if a < b:
         raise ValueError("A не может быть меньше B")
     return a // b, a % b

@@ -2,6 +2,11 @@ from math import radians, e, sin, sqrt
 
 
 def calculate_2(a, b, c, d, x, is_degrees):
+    """
+        Data: numbers - a, b, c, d, x
+        Task: calculate the value of the expression y = e ** a * (sin x) ** 2 - sqrt(|(c - b ** 2) / a|) + d
+              two ways: first - x in radians, second - x in degrees
+    """
     if is_degrees.lower() == "да":
         x = radians(x)
     return round(e ** a * sin(x) ** 2 - sqrt(abs((c - b ** 2) / a)) + d, 3)
