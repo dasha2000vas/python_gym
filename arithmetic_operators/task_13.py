@@ -15,5 +15,5 @@ def calculate_1(a, x, in_degrees):
 if __name__ == "__main__":
     a = int(input("a = "))
     x = int(input("x = "))
-    is_degrees = input("x in degrees(y/n): ")
-    print("Result:", calculate_1(a, x, is_degrees))
+    in_degrees = input("x in degrees(y/n): ")
+    print("Result:", calculate_1(a, x, in_degrees))

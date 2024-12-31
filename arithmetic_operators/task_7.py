@@ -14,5 +14,5 @@ if __name__ == '__main__':
     b = int(input("b = "))
     c = int(input("c = "))
     count, remain = find_count_of_square_in_rectangle(a, b, c)
-    print(count, "squares")
+    print(count, "times")
     print(remain, "- area of the remaining part")

@@ -18,5 +18,5 @@ if __name__ == "__main__":
     c = int(input("c = "))
     d = int(input("d = "))
     x = int(input("x = "))
-    is_degrees = input("x in degrees(y/n): ")
-    print("Result:", calculate_2(a, b, c, d, x, is_degrees))
+    in_degrees = input("x in degrees(y/n): ")
+    print("Result:", calculate_2(a, b, c, d, x, in_degrees))

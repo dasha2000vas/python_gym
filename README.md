@@ -30,5 +30,5 @@ uv sync
 3. Run tests:
 
 ```bash
- uv run pytest -v
+ uv run coverage run -m pytest -v && coverage report
 ```
