@@ -1,4 +1,7 @@
-def find_count_of_square_in_rectangle(a, b, c):
+from random import randint
+
+
+def find_count_of_square_in_rectangle(a: int, b: int, c: int) -> tuple[int, int]:
     """
         Data: rectangle with sides - a, b
               square with side - c
@@ -10,9 +13,8 @@ def find_count_of_square_in_rectangle(a, b, c):
 
 
 if __name__ == '__main__':
-    a = int(input("a = "))
-    b = int(input("b = "))
-    c = int(input("c = "))
+    a, b, c = randint(11, 20), randint(21, 30), randint(1, 10)
+    print("a =", a, "\nb =", b, "\nc =", c)
     count, remain = find_count_of_square_in_rectangle(a, b, c)
     print(count, "times")
     print(remain, "- area of the remaining part")

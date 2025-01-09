@@ -1,4 +1,7 @@
-def move_leftmost_digit_to_right_end(number):
+from random import randint
+
+
+def move_leftmost_digit_to_right_end(number: int) -> int:
     """
         Data: а three-digit number
         Task: move the leftmost digit to the right end of the number
@@ -8,5 +11,6 @@ def move_leftmost_digit_to_right_end(number):
 
 
 if __name__ == "__main__":
-    number = int(input("Number: "))
-    print("Result: ", move_leftmost_digit_to_right_end(number))
+    number = randint(100, 999)
+    print("Number:", number)
+    print("Result:", move_leftmost_digit_to_right_end(number))
