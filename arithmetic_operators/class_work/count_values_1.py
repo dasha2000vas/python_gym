@@ -6,7 +6,7 @@
 from random import randint
 
 if __name__ == "__main__":
-    a, b = randint(0, 100), randint(0, 100)
+    a, b = randint(0, 50), randint(0, 50)
     print("a =", a, "\nb =", b)
 
     print(a + b + a / b)
