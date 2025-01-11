@@ -1,15 +1,21 @@
 from random import randint
 
 
-def sum_of_digits(integer: int) -> int:
+def sum_of_digits(number: int) -> int:
     """
-        Data: а three-digit integer
-        Task: find the sum of digits of the number using next operations: %, //
+    Calculates the sum of digits of the number
+    using next operations: %, // and return the result.
+
+    Args:
+        number (int): The three-digit number.
+
+    Returns:
+        int: The sum of digits.
     """
-    return integer // 100 + integer // 10 % 10 + integer % 10
+    return number // 100 + number // 10 % 10 + number % 10
 
 
 if __name__ == "__main__":
-    integer = randint(100, 999)
-    print("Integer:", integer)
-    print("Sum of digits:", sum_of_digits(integer))
+    number = randint(100, 999)
+    print("Integer:", number)
+    print("Sum of digits:", sum_of_digits(number))

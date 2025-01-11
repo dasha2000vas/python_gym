@@ -1,130 +1,152 @@
-from arithmetic_operators.home_work.сelsius_to_fahrenheit import calculate_temperature_in_fahrenheit
+from pytest import mark
+
+from arithmetic_operators.home_work.celsius_to_fahrenheit import calculate_temperature_in_fahrenheit
 from arithmetic_operators.home_work.perimeter_and_square_of_triangle import find_perimeter_and_square
 from arithmetic_operators.home_work.leftmost_digit_to_right_end import move_leftmost_digit_to_right_end
 from arithmetic_operators.home_work.third_digit_from_end import define_third_digit_from_end
 from arithmetic_operators.home_work.glue_numbers import glue_numbers
 from arithmetic_operators.home_work.sum_of_digits import sum_of_digits
-from arithmetic_operators.home_work.count_of_square_in_rectangle import find_count_of_square_in_rectangle
+from arithmetic_operators.home_work.count_of_square_in_rectangle import find_count_of_squares_in_rectangle
 from arithmetic_operators.home_work.find_b_in_a import find_b_in_a
-from arithmetic_operators.home_work.cost_in_rubles_and_kopecks import find_cost_in_rubles_and_kopecks
+from arithmetic_operators.home_work.cost_in_rubles_and_pennies import find_cost_in_rubles_and_pennies
 from arithmetic_operators.home_work.count_value import count_value
 from arithmetic_operators.home_work.count_of_cabins import count_of_cabins
 from arithmetic_operators.home_work.count_of_desks import calculate_count_of_desks
-from arithmetic_operators.home_work.calculate_1 import calculate_1
-from arithmetic_operators.home_work.calculate_2 import calculate_2
+from arithmetic_operators.home_work.calculate_y_from_a_and_angle_x import calculate_y_from_a_and_angle_x
+from arithmetic_operators.home_work.calculate_y_from_a_b_c_d_and_angle_x import calculate_y_from_a_b_c_d_and_angle_x
 
 
-def test_сelsius_to_fahrenheit():
-    assert calculate_temperature_in_fahrenheit(25) == 77
-    assert calculate_temperature_in_fahrenheit(40) == 104
-    assert calculate_temperature_in_fahrenheit(60) == 140
+@mark.parametrize("test_temp_in_celsius,test_temp_in_fahrenheit", [(25, 77), (40, 104), (60, 140)])
+def test_celsius_to_fahrenheit(test_temp_in_celsius, test_temp_in_fahrenheit):
+    assert calculate_temperature_in_fahrenheit(test_temp_in_celsius) == test_temp_in_fahrenheit
 
 
-def test_perimeter_and_square_of_triangle():
-    perimeter, square = find_perimeter_and_square(2, 3, 6, 1, 4, 8)
-    assert perimeter == 16.22
-    assert square == 2.5
-    perimeter, square = find_perimeter_and_square(1, 4, 7, 3, 5, 10)
-    assert perimeter == 18.66
-    assert square == 4.5
-    perimeter, square = find_perimeter_and_square(1, 5, 9, 1, 5, 7)
-    assert perimeter == 20.13
-    assert square == 4
+@mark.parametrize(
+    "test_x1,test_x2,test_x3,test_y1,test_y2,test_y3,test_perimeter,test_square",
+    [
+        (2, 3, 6, 1, 4, 8, 16.22, 2.5),
+        (1, 4, 7, 3, 5, 10, 18.66, 4.5),
+        (1, 5, 9, 1, 5, 7, 20.13, 4)
+    ]
+)
+def test_perimeter_and_square_of_triangle(
+        test_x1, test_x2, test_x3, test_y1, test_y2, test_y3, test_perimeter, test_square
+):
+    assert find_perimeter_and_square(
+        test_x1, test_x2, test_x3, test_y1, test_y2, test_y3
+    ) == (test_perimeter, test_square)
 
 
-def test_leftmost_digit_to_right_end():
-    assert move_leftmost_digit_to_right_end(237) == 372
-    assert move_leftmost_digit_to_right_end(340) == 403
-    assert move_leftmost_digit_to_right_end(572) == 725
+@mark.parametrize("test_number,test_result", [(237, 372), (340, 403), (572, 725)])
+def test_leftmost_digit_to_right_end(test_number, test_result):
+    assert move_leftmost_digit_to_right_end(test_number) == test_result
 
 
-def test_third_digit_from_end():
-    assert define_third_digit_from_end(130985) == 9
-    assert define_third_digit_from_end(24024057) == 0
-    assert define_third_digit_from_end(321) == 3
+@mark.parametrize("test_number,test_result", [(130985, 9), (24024057, 0), (321, 3)])
+def test_third_digit_from_end(test_number, test_result):
+    assert define_third_digit_from_end(test_number) == test_result
 
 
-def test_glue_numbers():
-    assert glue_numbers(100, 500) == 100500
-    assert glue_numbers(123, 456) == 123456
-    assert glue_numbers(987, 654) == 987654
+@mark.parametrize(
+    "test_a,test_b,test_result",
+    [(100, 500, 100500), (123, 456, 123456 ), (987, 654, 987654)]
+)
+def test_glue_numbers(test_a, test_b, test_result):
+    assert glue_numbers(test_a, test_b) == test_result
 
 
-def test_sum_of_digits():
-    assert sum_of_digits(111) == 3
-    assert sum_of_digits(123) == 6
-    assert sum_of_digits(999) == 27
+@mark.parametrize("test_number,test_sum", [(111, 3), (123, 6), (999, 27)])
+def test_sum_of_digits(test_number, test_sum):
+    assert sum_of_digits(test_number) == test_sum
 
 
-def test_count_of_square_in_rectangle():
-    count, remain = find_count_of_square_in_rectangle(11, 7, 3)
-    assert count == 6
-    assert remain == 23
-    count, remain = find_count_of_square_in_rectangle(9, 16, 4)
-    assert count == 8
-    assert remain == 16
-    count, remain = find_count_of_square_in_rectangle(21, 24, 20)
-    assert count == 1
-    assert remain == 104
+@mark.parametrize(
+    "test_a,test_b,test_c,test_count,test_remain",
+    [(11, 7, 3, 6, 23), (9, 16, 4, 8,16), (21, 24, 20, 1, 104)]
+)
+def test_count_of_squares_in_rectangle(test_a, test_b, test_c, test_count, test_remain):
+    assert find_count_of_squares_in_rectangle(test_a, test_b, test_c) == (test_count, test_remain)
 
 
-
-def test_find_b_in_a():
-    count, remain = find_b_in_a(20, 3)
-    assert count == 6
-    assert remain == 2
-    count, remain = find_b_in_a(123, 4)
-    assert count == 30
-    assert remain == 3
-    count, remain = find_b_in_a(987, 56)
-    assert count == 17
-    assert remain == 35
+@mark.parametrize(
+    "test_a,test_b,test_count,test_remain",
+    [(20, 3, 6, 2), (123, 4, 30, 3), (987, 56, 17, 35)]
+)
+def test_find_b_in_a(test_a, test_b, test_count, test_remain):
+    assert find_b_in_a(test_a, test_b) == (test_count, test_remain)
 
 
-
-def test_cost_in_rubles_and_kopecks():
-    r, k = find_cost_in_rubles_and_kopecks(453)
-    assert r == 4
-    assert k == 53
-    r, k = find_cost_in_rubles_and_kopecks(3483)
-    assert r == 34
-    assert k == 83
-    r, k = find_cost_in_rubles_and_kopecks(98765)
-    assert r == 987
-    assert k == 65
+@mark.parametrize(
+    "test_cost_in_pennies,test_rubles,test_pennies",
+    [(453, 4, 53), (3483, 34, 83), (98765, 987, 65)]
+)
+def test_cost_in_rubles_and_pennies(test_cost_in_pennies, test_rubles, test_pennies):
+    assert find_cost_in_rubles_and_pennies(test_cost_in_pennies) == (test_rubles, test_pennies)
 
 
-def test_count_value():
-    assert count_value(3, 5, 33, 77) == 44.998
-    assert count_value(2, 3, 4, 5) == 17.8
-    assert count_value(6, 7, 11, 22) == 125.983
+@mark.parametrize(
+    "test_a,test_b,test_c,test_d,test_result",
+    [(3, 5, 33, 77, 44.998), (2, 3, 4, 5, 17.8), (6, 7, 11, 22, 125.983)]
+)
+def test_count_value(test_a, test_b, test_c, test_d, test_result):
+    assert count_value(test_a, test_b, test_c, test_d) == test_result
 
 
-def test_count_of_cabins():
-    assert count_of_cabins(8, 20) == 24
-    assert count_of_cabins(1, 5) == 8
-    assert count_of_cabins(4, 22) == 36
+@mark.parametrize("test_a,test_b,test_count", [(8, 20, 24), (1, 5, 8), (4, 22, 36)])
+def test_count_of_cabins(test_a, test_b, test_count):
+    assert count_of_cabins(test_a, test_b) == test_count
 
 
-def test_count_of_desks():
-    assert calculate_count_of_desks(21, 19, 17) == 30
-    assert calculate_count_of_desks(11, 15, 23) == 26
-    assert calculate_count_of_desks(19, 25, 22) == 34
+@mark.parametrize(
+    "test_class_a,test_class_b,test_class_c,test_count",
+    [(21, 19, 17, 30), (11, 15, 23, 26), (19, 25, 22, 34)]
+)
+def test_count_of_desks(test_class_a, test_class_b, test_class_c, test_count):
+    assert calculate_count_of_desks(test_class_a, test_class_b, test_class_c) == test_count
 
 
-def test_calculate_1():
-    assert calculate_1(12, 45) == 117835.745
-    assert calculate_1(12, 45, True) == 81375.794
-    assert calculate_1(5, 20) == 121.555
-    assert calculate_1(5, 20, True) == 16.697
-    assert calculate_1(2, 30) == 3.213
-    assert calculate_1(2, 30, True) == 1.636
+@mark.parametrize(
+    "test_a,test_x,test_result_if_x_in_radians,test_result_if_x_in_degrees",
+    [
+        (12, 45, 117835.745, 81375.794),
+        (5, 20, 121.555, 16.697),
+        (2, 30, 3.213, 1.636),
+    ]
+)
+def test_calculate_y_from_a_and_angle_x(test_a, test_x, test_result_if_x_in_radians, test_result_if_x_in_degrees):
+    assert calculate_y_from_a_and_angle_x(test_a, test_x) == test_result_if_x_in_radians
+    assert calculate_y_from_a_and_angle_x(test_a, test_x, True) == test_result_if_x_in_degrees
 
 
-def test_calculate_2():
-    assert calculate_2(22, 1, 44, 27, 30) == 3499615212.824
-    assert calculate_2(22, 1, 44, 27, 30, True) == 896228237.135
-    assert calculate_2(2, 3, 4, 5, 6) == 3.996
-    assert calculate_2(2, 3, 4, 5, 6, True) == 3.5
-    assert calculate_2(11, 12, 13, 14, 15) == 25329.783
-    assert calculate_2(11, 12, 13, 14, 15, True) == 4021.356
+@mark.parametrize(
+    "test_a,test_b,test_c,test_d,test_x,test_result_if_x_in_radians,test_result_if_x_in_degrees",
+    [
+        (22, 1, 44, 27, 30, 3499615212.824, 896228237.135),
+        (2, 3, 4, 5, 6, 3.996, 3.5),
+        (11, 12, 13, 14, 15, 25329.783, 4021.356),
+    ]
+)
+def test_calculate_y_from_a_b_c_d_and_angle_x(
+        test_a,
+        test_b,
+        test_c,
+        test_d,
+        test_x,
+        test_result_if_x_in_radians,
+        test_result_if_x_in_degrees
+):
+    assert calculate_y_from_a_b_c_d_and_angle_x(
+        test_a,
+        test_b,
+        test_c,
+        test_d,
+        test_x,
+    ) == test_result_if_x_in_radians
+    assert calculate_y_from_a_b_c_d_and_angle_x(
+        test_a,
+        test_b,
+        test_c,
+        test_d,
+        test_x,
+        True
+    ) == test_result_if_x_in_degrees

@@ -3,10 +3,18 @@ from random import choice
 
 def count_value(a: int, b: int, c: int, d: int) -> float:
     """
-       Data: integers not equal to zero - a, b, c, d
-             if a=0 or b=0 the value will always be negative
-             if c=0 or d=0 there will be division by zero
-       Task: calculate the value of the expression y = 3ab - 4 / (cd)
+    Calculates the value of the expression: 3ab - 4 / (cd) and returns the result.
+    Note: if a=0 or b=0 the value will always be negative,
+    if c=0 or d=0 there will always be division by zero.
+
+    Args:
+        a (int): The first number, not zero.
+        b (int): The second number, not zero.
+        c (int): The third number, not zero.
+        d (int): The fourth number, not zero.
+
+    Returns:
+        float: The resulting number.
     """
     return round(3 * a * b - 4 / (c * d), 3)
 

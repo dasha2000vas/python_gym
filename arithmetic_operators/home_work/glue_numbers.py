@@ -3,8 +3,14 @@ from random import randint
 
 def glue_numbers(a: int, b: int) -> int:
     """
-        Data: two three-digit numbers - a, b
-        Task: glue those numbers
+    Adds the second number from the right and returns the result.
+
+    Args:
+        a (int): The first three-digit number.
+        b (int): The second three-digit number.
+
+    Returns:
+        int: The resulting of the gluing.
     """
     return a * 1000 + b
 

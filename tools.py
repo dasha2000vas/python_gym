@@ -2,7 +2,7 @@ from random import randint
 
 
 def drop_fractional_part(number: float) -> int:
-    return int(str(number).split(".")[0])
+    return int(number)
 
 
 def random_numbers_of_same_parity() -> tuple[int, int]:

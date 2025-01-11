@@ -4,10 +4,17 @@ from random import randint
 
 def calculate_count_of_desks(class_a: int, class_b: int, class_c: int) -> int:
     """
-    In some school, it was decided to create three new math classes and
-    equip classrooms with new desks for the students. Two students can sit at each desk
-        Data: number of students in each class - A, B, C
-        Task: find the minimum number of desks that need to be purchased
+    Calculates how many desks need to be purchased to equip classrooms
+    for three new math classes. Returns the result.
+    Note: Two students can sit at one desk.
+
+    Args:
+        class_a (int): Count of students in class A.
+        class_b (int): Count of students in class B.
+        class_c (int): Count of students in class C.
+
+    Returns:
+        int: The minimum number of desks.
     """
     return ceil(class_a / 2) + ceil(class_b / 2) + ceil(class_c / 2)
 

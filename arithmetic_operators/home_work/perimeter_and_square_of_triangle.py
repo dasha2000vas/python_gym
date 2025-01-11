@@ -6,14 +6,25 @@ def find_perimeter_and_square(
         x1: int, x2: int, x3: int, y1: int, y2: int, y3: int
 ) -> tuple[float, float]:
     """
-        Data: coordinates of the three vertices of the triangle
-              point1 - (x1, y1), point2 - (x2, y2), point3 - (x3, y3)
-        Task: find the perimeter and square of the triangle
+    Calculates the perimeter and square of the triangle
+    by coordinates and returns the result.
+
+    Args:
+        x1 (int): The x coordinate of point 1.
+        x2 (int): The x coordinate of point 2.
+        x3 (int): The x coordinate of point 3.
+        y1 (int): The y coordinate of point 1.
+        y2 (int): The y coordinate of point 2.
+        y3 (int): The y coordinate of point 3.
+
+    Returns:
+        perimeter (float): The perimeter of the triangle.
+        square (float): The square of the triangle.
     """
-    AB = sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-    AC = sqrt((x3 - x1) ** 2 + (y3 - y1) ** 2)
-    BC = sqrt((x3 - x2) ** 2 + (y3 - y2) ** 2)
-    perimeter = round(AB + AC + BC, 2)
+    ab = sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    ac = sqrt((x3 - x1) ** 2 + (y3 - y1) ** 2)
+    bc = sqrt((x3 - x2) ** 2 + (y3 - y2) ** 2)
+    perimeter = round(ab + ac + bc, 2)
     square = abs((x1 - x3) * (y2 - y3) - (x2 - x3) * (y1 - y3)) / 2
     return perimeter, square
 

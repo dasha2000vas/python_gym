@@ -3,9 +3,16 @@ from random import randint
 
 def find_b_in_a(a: int, b: int) -> tuple[int, int]:
     """
-        Data: positive integers - a, b (a > b)
-        Task: find how many segments b fit into segments a
-              find the length of the remaining part
+    Calculates how many segments b fit into segments a,
+    finds the length of the remaining part and returns the result.
+    Note: a must be greater than b.
+
+    Args:
+        a (int): The first positive number.
+        b (int): The second positive number.
+
+    Returns:
+        tuple[int, int]: The resulting numbers.
     """
     return a // b, a % b
 
