@@ -4,14 +4,12 @@ from random import randint
 
 def calculate_sin_cos_tg_of_angle(d: int, min: int, sec: int) -> tuple[float, float, float, float]:
     """
-    Data: angle value (in degrees, minutes, seconds)
-    Task: convert the value to radians,
-          calculate the sine, cosine and tangent of this angle
+        Data: angle value (in degrees, minutes, seconds)
+        Task: convert the value to radians,
+              calculate the sine, cosine and tangent of this angle
     """
-    if d < 0:
-        d += 360
     d = radians(d + min / 60 + sec / 3600)
-    return d, sin(d), cos(d), tan(d)
+    return round(d, 2), round(sin(d), 2), round(cos(d), 2), round(tan(d), 2)
 
 
 if __name__ == "__main__":

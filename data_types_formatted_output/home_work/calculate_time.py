@@ -3,10 +3,10 @@ from random import randint
 
 def calculate_time(n: int) -> tuple[int, int, int, int]:
     """
-    Data: n seconds have passed since the beginning of the day (n is an integer)
-    Task: find the number of full minutes, number of full hours,
-          number of seconds that have passed since the beginning of the last minute,
-          number of minutes that have passed since the beginning of the last hour
+        Data: n seconds have passed since the beginning of the day (n is an integer)
+        Task: find the number of full minutes, number of full hours,
+              number of seconds that have passed since the beginning of the last minute,
+              number of minutes that have passed since the beginning of the last hour
     """
     return  n // 60, n // 3600, n % 60, n % 3600 //60
 

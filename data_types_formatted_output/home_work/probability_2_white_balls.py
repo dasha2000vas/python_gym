@@ -11,9 +11,8 @@ def probability_of_two_white_balls(n: int, m: int) -> float:
               of the basket will turn out to be white
     """
     probability_n = factorial(n) / (factorial(n - 2) * 2)
-    probability_m = factorial(m) / (factorial(m - 0) * 1)
     probability_all = factorial(m + n) / (factorial(m + n - 2) * 2)
-    return probability_n * probability_m / probability_all * 100
+    return probability_n / probability_all * 100
 
 
 if __name__ == '__main__':
