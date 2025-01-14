@@ -1,5 +1,5 @@
 from math import radians, e, sin, sqrt
-from random import randint
+from random import choice, randint
 
 
 def calculate_y_from_a_b_c_d_and_angle_x(a: int, b: int, c: int, d: int, x: int, in_degrees: bool = False) -> float:
@@ -9,7 +9,7 @@ def calculate_y_from_a_b_c_d_and_angle_x(a: int, b: int, c: int, d: int, x: int,
     and returns the result.
 
     Args:
-        a (int): The first number.
+        a (int): The first number, not zero.
         b (int): The second number.
         c (int): The third number.
         d (int): The fourth number.
@@ -26,8 +26,9 @@ def calculate_y_from_a_b_c_d_and_angle_x(a: int, b: int, c: int, d: int, x: int,
 
 
 if __name__ == "__main__":
+    numbers = [i for i in range(-50, 50) if i != 0]
     a, b, c, d, x = (
-        randint(-50, 50),
+        choice(numbers),
         randint(-50, 50),
         randint(-50, 50),
         randint(-50, 50),
