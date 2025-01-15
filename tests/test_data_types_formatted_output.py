@@ -2,7 +2,7 @@ from data_types_formatted_output.class_work.calculate_f_1 import calculate_f_1
 from data_types_formatted_output.class_work.calculate_f_2 import calculate_f_2
 from data_types_formatted_output.class_work.calculate_remainder import calculate_remainder
 from data_types_formatted_output.class_work.speed import find_speed_in_m_s
-from data_types_formatted_output.home_work.first_and_last_digits import get_first_and_last_digits
+from data_types_formatted_output.home_work.first_and_last_digits import swap_first_and_last_digits
 from data_types_formatted_output.home_work.glue_numbers_without_last_digits import glue_numbers_without_last_digits
 from data_types_formatted_output.home_work.result_of_calculations import get_result_of_calculations
 from data_types_formatted_output.home_work.lag_time import find_lag_time
@@ -40,9 +40,9 @@ def test_calculate_f_2():
 
 
 def test_first_and_last_digits():
-    assert get_first_and_last_digits(123) == 13
-    assert get_first_and_last_digits(450) == 40
-    assert get_first_and_last_digits(101) == 11
+    assert swap_first_and_last_digits(123) == 321
+    assert swap_first_and_last_digits(450) == 54
+    assert swap_first_and_last_digits(987) == 789
 
 
 def test_glue_numbers_without_last_digits():
