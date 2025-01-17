@@ -3,9 +3,15 @@ from random import randint
 
 def glue_numbers_without_last_digits(a: int, b: int) -> int:
     """
-        Data: two three-digit integers
-        Task: get a new number by adding the second number from the right
-              to the first, without the last digits of each
+    Adds the second number from the right
+    to the first, without the last digits of each.
+
+    Args:
+        a (int): The first three-digit number.
+        b (int): The second three-digit number.
+
+    Returns:
+        int: The resulting number.
     """
     return a // 10 * 100 + b // 10
 

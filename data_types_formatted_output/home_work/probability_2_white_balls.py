@@ -4,11 +4,15 @@ from random import randint
 
 def probability_of_two_white_balls(n: int, m: int) -> float:
     """
-    There are n white and m black balls in the basket. Two balls are pulled out of it
-        Data: number of white balls - n,
-              number of black balls - m
-        Task: find the percentage probability that two balls pulled out
-              of the basket will turn out to be white
+    Calculates the percentage probability that two balls
+    pulled out of the basket will turn out to be white.
+
+    Args:
+        n (int): Number of white balls.
+        m (int): Number of black balls.
+
+    Returns:
+        float: The percentage probability.
     """
     probability_n = factorial(n) / (factorial(n - 2) * 2)
     probability_all = factorial(m + n) / (factorial(m + n - 2) * 2)

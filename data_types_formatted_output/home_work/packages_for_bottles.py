@@ -4,10 +4,15 @@ from random import randint
 
 def find_number_of_packages(n: int, k: int) -> int:
     """
-    Someone decided to hand over the empty bottles by packing them in packages.
-        Data: number of bottles - n,
-              the maximum number of bottles that can hold one package - k
-        Task: find how many packages he needs
+    Calculates how many packages we need to pack n bottles
+    if one package can hold maximum k bottles.
+
+    Args:
+        n (int): Number of bottles.
+        k (int): Max number of bottles that can hold one package.
+
+    Returns:
+        int: Number of packages.
     """
     return ceil(n / k)
 

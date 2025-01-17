@@ -4,9 +4,15 @@ from random import randint
 
 def calculate_f_1(a: int, in_degrees: bool = False) -> float:
     """
-        Data: number - a
-        Task: calculate the value of the expression f = tg(a) - sin(a)
-              two ways: first - a in radians, second - a in degrees
+    Calculates the value of the expression f = tg(a) - sin(a).
+
+    Args:
+        a (int): Angle value.
+        in_degrees (bool): True if a is in degrees, else False.
+                           Default is False.
+
+    Returns:
+        float: The resulting number.
     """
     if in_degrees:
         a = radians(a)

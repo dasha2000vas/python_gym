@@ -4,10 +4,13 @@ from random import randint
 
 def calculate_f_2(a: int) -> float:
     """
-        Data: number - a (degrees)
-        Task: calculate the value of the expression f = |tg(a) - sin(a ** 3)|
-              result with three digit after dot
-              format with operator %
+    Calculates the value of the expression f = |tg(a) - sin(a ** 3)|.
+
+    Args:
+        a (int): Angle value in degrees.
+
+    Returns:
+        float: The resulting number.
     """
     a = radians(a)
     return abs(tan(a) - sin(a ** 3))

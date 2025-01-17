@@ -2,9 +2,15 @@ from random import randint
 
 def calculate_remainder(n: int, k: int) -> int :
     """
-        Data: integers - n, k
-        Task: write down the number n a thousand times
-              find the remainder of the division by k
+    Writes number n thousand times, then
+    finds remainder of division by k.
+
+    Args:
+        n (int): The first number.
+        k (int): The second number
+
+    Returns:
+        int: The resulting number.
     """
     return int(str(n) * 1000) % k
 

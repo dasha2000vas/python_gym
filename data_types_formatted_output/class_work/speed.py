@@ -1,9 +1,13 @@
 def find_speed_in_m_s(t: int, d: int) -> float:
     """
-        Data: time in hours - t
-              distance in km - d
-        Task: find speed in m/s
-              output in format 00.000
+    Calculates speed in m/s.
+
+    Args:
+        t (int): Time in hours.
+        d (int): Distance in km.
+
+    Returns:
+        float: Speed in m/s.
     """
     return (d * 1000) / (t * 60 * 60)
 
