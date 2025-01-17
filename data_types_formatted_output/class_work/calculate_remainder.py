@@ -7,7 +7,7 @@ def calculate_remainder(n: int, k: int) -> int :
 
     Args:
         n (int): The first number.
-        k (int): The second number
+        k (int): The divider.
 
     Returns:
         int: The resulting number.
