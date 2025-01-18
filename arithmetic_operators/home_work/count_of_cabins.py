@@ -3,9 +3,9 @@ from tools import random_numbers_of_same_parity
 
 def count_of_cabins(a: int, b: int) -> int:
     """
-    Calculates count of cabins on the Ferris wheel
-    if the number of cabins is even and returns the result.
-    a < b, a and b have the same parity.
+    Calculates count of cabins on the Ferris
+    wheel if the number of cabins is even.
+    Note: a < b, a and b have the same parity.
 
     Args:
         a (int): The bottom cabin.

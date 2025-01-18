@@ -3,8 +3,8 @@ from random import randint
 
 def sum_of_digits(number: int) -> int:
     """
-    Calculates the sum of digits of the number
-    using next operations: %, // and return the result.
+    Calculates the sum of digits of the
+    number using next operations: %, //.
 
     Args:
         number (int): The three-digit number.

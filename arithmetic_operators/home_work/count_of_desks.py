@@ -4,8 +4,8 @@ from random import randint
 
 def calculate_count_of_desks(class_a: int, class_b: int, class_c: int) -> int:
     """
-    Calculates how many desks need to be purchased to equip classrooms
-    for three new math classes. Returns the result.
+    Calculates how many desks need to be purchased
+    to equip classrooms for three new math classes.
     Note: Two students can sit at one desk.
 
     Args:

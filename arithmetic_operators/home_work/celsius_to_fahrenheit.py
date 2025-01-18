@@ -5,8 +5,7 @@ from tools import drop_fractional_part
 
 def calculate_temperature_in_fahrenheit(temp_in_celsius: int) -> int:
     """
-    Converts temperature from degrees Celsius to degrees Fahrenheit
-    and returns the result.
+    Converts temperature from degrees Celsius to degrees Fahrenheit.
 
     Args:
         temp_in_celsius (int): Temperature in degrees Celsius.

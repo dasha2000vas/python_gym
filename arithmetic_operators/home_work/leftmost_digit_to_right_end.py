@@ -3,8 +3,7 @@ from random import randint
 
 def move_leftmost_digit_to_right_end(number: int) -> int:
     """
-    Moves the leftmost digit to the right end of the number
-    and returns the result.
+    Moves the leftmost digit to the right end of the number.
 
     Args:
         number (int): The three-digit number.
@@ -12,8 +11,7 @@ def move_leftmost_digit_to_right_end(number: int) -> int:
     Returns:
         int: The resulting number.
     """
-    last_digit = number // 100
-    return number % 100 * 10 + last_digit
+    return number % 100 * 10 + number // 100
 
 
 if __name__ == "__main__":

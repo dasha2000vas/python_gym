@@ -5,8 +5,7 @@ from random import choice, randint
 def calculate_y_from_a_b_c_d_and_angle_x(a: int, b: int, c: int, d: int, x: int, in_degrees: bool = False) -> float:
     """
     Calculates the value of the expression:
-    e ** a * (sin x) ** 2 - sqrt(|(c - b ** 2) / a|) + d
-    and returns the result.
+    e ** a * (sin x) ** 2 - sqrt(|(c - b ** 2) / a|) + d.
 
     Args:
         a (int): The first number, not zero.

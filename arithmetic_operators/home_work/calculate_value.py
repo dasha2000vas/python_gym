@@ -1,9 +1,9 @@
 from random import choice
 
 
-def count_value(a: int, b: int, c: int, d: int) -> float:
+def calculate_value(a: int, b: int, c: int, d: int) -> float:
     """
-    Calculates the value of the expression: 3ab - 4 / (cd) and returns the result.
+    Calculates the value of the expression: 3ab - 4 / (cd).
     Note: if a=0 or b=0 the value will always be negative,
     if c=0 or d=0 there will always be division by zero.
 
@@ -23,4 +23,4 @@ if __name__ == "__main__":
     numbers = [i for i in range(-50, 50) if i != 0]
     a, b, c, d = choice(numbers), choice(numbers), choice(numbers), choice(numbers)
     print("a =", a, "\nb =", b, "\nc =", c, "\nd =", d)
-    print("Result:", count_value(a, b, c, d))
+    print("Result:", calculate_value(a, b, c, d))
