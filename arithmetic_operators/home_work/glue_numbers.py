@@ -3,7 +3,7 @@ from random import randint
 
 def glue_numbers(a: int, b: int) -> int:
     """
-    Adds the second number from the right and returns the result.
+    Adds the second number from the right.
 
     Args:
         a (int): The first three-digit number.

@@ -3,7 +3,7 @@ from random import randint
 
 def find_cost_in_rubles_and_pennies(cost_in_pennies: int) -> tuple[int, int]:
     """
-    Calculates how many rubles and pennies are in the cost and returns the result.
+    Calculates how many rubles and pennies are in the cost.
 
     Args:
         cost_in_pennies (int): The cost of pennies.

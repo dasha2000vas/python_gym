@@ -6,8 +6,8 @@ def find_perimeter_and_square(
         x1: int, x2: int, x3: int, y1: int, y2: int, y3: int
 ) -> tuple[float, float]:
     """
-    Calculates the perimeter and square of the triangle
-    by coordinates and returns the result.
+    Calculates the perimeter and square
+    of the triangle by coordinates.
 
     Args:
         x1 (int): The x coordinate of point 1.

@@ -3,8 +3,8 @@ from random import randint
 
 def find_count_of_squares_in_rectangle(a: int, b: int, c: int) -> tuple[int, int]:
     """
-    Calculates the count of squares in a rectangle, the area of the remaining part
-    and returns the result.
+    Calculates the count of squares in a rectangle
+    and the area of the remaining part.
 
     Args:
         a (int): The side of the rectangle.
