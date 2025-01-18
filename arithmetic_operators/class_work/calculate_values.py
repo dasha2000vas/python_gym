@@ -3,10 +3,7 @@ from random import randint
 
 def calculate_values(a: int, b: int) -> tuple[float, float, float]:
     """
-    Calculates the values of the expressions:
-    a + b + a / b,
-    2a - a / (3b),
-    sqrt(3a) / (2b).
+    Calculates the values of the expressions.
 
     Args:
         a (int): The first number.
@@ -15,7 +12,11 @@ def calculate_values(a: int, b: int) -> tuple[float, float, float]:
     Returns:
         tuple[float, float, float]: The resulting numbers.
     """
-    return a + b + a / b, 2 * a - a / (3 * b), (3 * a) ** 0.5 / (2 * b)
+    return (
+        a + b + a / b,
+        2 * a - a / (3 * b),
+        (3 * a) ** 0.5 / (2 * b)
+    )
 
 
 if __name__ == "__main__":

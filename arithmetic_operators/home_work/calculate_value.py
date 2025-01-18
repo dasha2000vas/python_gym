@@ -3,7 +3,7 @@ from random import choice
 
 def calculate_value(a: int, b: int, c: int, d: int) -> float:
     """
-    Calculates the value of the expression: 3ab - 4 / (cd).
+    Calculates the value of the expression.
     Note: if a=0 or b=0 the value will always be negative,
     if c=0 or d=0 there will always be division by zero.
 

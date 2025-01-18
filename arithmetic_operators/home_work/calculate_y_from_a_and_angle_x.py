@@ -4,8 +4,7 @@ from math import radians, e, sin
 
 def calculate_y_from_a_and_angle_x(a: int, x: int, in_degrees: bool = False) -> float:
     """
-    Calculates the value of the expression:
-    e ** a * (sin x) ** 2 - (|x - a|) / 7.
+    Calculates the value of the expression.
 
     Args:
         a (int): The first number.

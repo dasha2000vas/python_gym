@@ -4,10 +4,7 @@ from random import randint
 
 def calculate_f_g_s(a: int, b: int) -> tuple[float, float, float]:
     """
-    Calculates the values of the expressions:
-    f = (a ** b) ** 0.5,
-    g = f - sin(a ** 3.5),
-    g * f + cos(a - 2 * b) ** 2.
+    Calculates the values of the expressions.
     Rounds the result to two digits after the dot.
 
     Args:

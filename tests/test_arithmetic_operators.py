@@ -1,19 +1,21 @@
 from pytest import mark
 
-from arithmetic_operators.home_work.celsius_to_fahrenheit import calculate_temperature_in_fahrenheit
-from arithmetic_operators.home_work.perimeter_and_square_of_triangle import find_perimeter_and_square
-from arithmetic_operators.home_work.leftmost_digit_to_right_end import move_leftmost_digit_to_right_end
-from arithmetic_operators.home_work.third_digit_from_end import define_third_digit_from_end
-from arithmetic_operators.home_work.glue_numbers import glue_numbers
-from arithmetic_operators.home_work.sum_of_digits import sum_of_digits
-from arithmetic_operators.home_work.count_of_square_in_rectangle import find_count_of_squares_in_rectangle
-from arithmetic_operators.home_work.find_b_in_a import find_b_in_a
-from arithmetic_operators.home_work.cost_in_rubles_and_pennies import find_cost_in_rubles_and_pennies
-from arithmetic_operators.home_work.calculate_value import calculate_value
-from arithmetic_operators.home_work.count_of_cabins import count_of_cabins
-from arithmetic_operators.home_work.count_of_desks import calculate_count_of_desks
-from arithmetic_operators.home_work.calculate_y_from_a_and_angle_x import calculate_y_from_a_and_angle_x
-from arithmetic_operators.home_work.calculate_y_from_a_b_c_d_and_angle_x import calculate_y_from_a_b_c_d_and_angle_x
+from arithmetic_operators import (
+    count_of_cabins,
+    calculate_value,
+    calculate_count_of_desks,
+    calculate_y_from_a_and_angle_x,
+    calculate_y_from_a_b_c_d_and_angle_x,
+    calculate_temperature_in_fahrenheit,
+    find_count_of_squares_in_rectangle,
+    find_perimeter_and_square,
+    move_leftmost_digit_to_right_end,
+    define_third_digit_from_end,
+    sum_of_digits,
+    find_b_in_a,
+    find_cost_in_rubles_and_pennies,
+    glue_numbers,
+)
 
 
 @mark.parametrize("temp_in_celsius,temp_in_fahrenheit", [(25, 77), (40, 104), (60, 140)])
