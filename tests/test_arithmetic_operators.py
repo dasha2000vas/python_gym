@@ -57,9 +57,9 @@ def test_glue_numbers(a, b, result):
     assert glue_numbers(a, b) == result
 
 
-@mark.parametrize("number,sum", [(111, 3), (123, 6), (999, 27)])
-def test_sum_of_digits(number, sum):
-    assert sum_of_digits(number) == sum
+@mark.parametrize("number,result", [(111, 3), (123, 6), (999, 27)])
+def test_sum_of_digits(number, result):
+    assert sum_of_digits(number) == result
 
 
 @mark.parametrize(
