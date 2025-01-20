@@ -1,7 +1,7 @@
 from random import randint
 
 
-def belongs_to_range(num1: int, num2: int, num3: int) -> str:
+def belong_to_range(num1: int, num2: int, num3: int) -> str:
     """
     Checks if numbers belong to the range: from -3 to 3.
 

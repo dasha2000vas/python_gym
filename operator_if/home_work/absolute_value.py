@@ -3,7 +3,7 @@ from random import randint
 
 def get_absolute_value(number: int) -> int:
     """
-    Gets the absolute value of a number.
+    Gets the absolute value of number.
 
     Args:
         number (int): Entered number.

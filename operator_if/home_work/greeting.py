@@ -1,12 +1,12 @@
 def greeting(name: str) -> str:
     """
-    Greetings user if he enters their name.
+    Greetings user if he enters his name.
 
     Args:
         name (str): Name of user.
 
     Returns:
-        str: Greeting of user or asking them to log in.
+        str: Greeting of user or asking him to log in.
     """
     return f"Welcome, {name}" if name else "Please log in"
 

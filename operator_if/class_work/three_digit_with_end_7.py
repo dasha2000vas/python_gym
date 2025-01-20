@@ -11,7 +11,7 @@ def three_digit_with_end_seven(num1: int, num2: int) -> bool:
         num2 (int): The second positive number.
 
     Returns:
-        bool: True if there is three digit with end 7, else False.
+        bool: True if there is three-digit with end 7, else False.
     """
     return (
             len(str(num1)) == 3 and num1 % 10 == 7 or

@@ -1,7 +1,7 @@
 from random import randint
 
 
-def is_there_positive_number(num1: int, num2: int) -> str:
+def is_there_positive_even_number(num1: int, num2: int) -> str:
     """
     Defines if there is at least one positive even number.
 
@@ -22,4 +22,4 @@ def is_there_positive_number(num1: int, num2: int) -> str:
 if __name__ == "__main__":
     num1, num2 = randint(-100, 100), randint(-100, 100)
     print(f"Numbers: {num1}, {num2}")
-    print(is_there_positive_number(num1, num2))
+    print(is_there_positive_even_number(num1, num2))

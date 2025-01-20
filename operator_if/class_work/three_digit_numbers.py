@@ -1,7 +1,7 @@
 from random import randint
 
 
-def one_three_digit_number(num1, num2, num3):
+def one_three_digit_number(num1: int, num2: int, num3: int) -> bool:
     """
     Defines if there is at least one three-digit number.
 
@@ -16,7 +16,7 @@ def one_three_digit_number(num1, num2, num3):
     return len(str(num1)) == 3 or len(str(num2)) == 3 or len(str(num3)) == 3
 
 
-def three_digit_numbers(num1, num2, num3):
+def all_three_digit_numbers(num1: int, num2: int, num3: int) -> bool:
     """
     Defines if all numbers are threedigits.
 
@@ -35,6 +35,6 @@ if __name__ == "__main__":
     num1, num2, num3 = randint(1, 200), randint(1, 200), randint(1, 200)
     print(f"Numbers: {num1}, {num2}, {num3}")
     result_1 = one_three_digit_number(num1, num2, num3)
-    result_2 = three_digit_numbers(num1, num2, num3)
+    result_2 = all_three_digit_numbers(num1, num2, num3)
     print(f"There is at least one three-digit number: {result_1}")
     print(f"All numbers have three-digits: {result_2}")
