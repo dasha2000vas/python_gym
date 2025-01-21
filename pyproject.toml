@@ -1,0 +1,10 @@
+[project]
+name = "python-gym"
+version = "0.1.0"
+description = "Repository for training in Python"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "coverage==7.6.10",
+    "pytest==8.3.4",
+]
