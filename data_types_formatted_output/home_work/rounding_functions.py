@@ -1,7 +1,10 @@
-# Data: real numbers - A, B, C, D, F, G
-# Task: apply the following functions to these numbers - int, round, trunc, ceil, floor
-#       output the answer in the form of a table
-#       column names are functions, rows are entered numbers
+"""
+Data: real numbers - A, B, C, D, F, G
+Task: apply the following functions to these numbers -
+      int, round, trunc, ceil, floor
+      output the answer in the form of a table
+      column names are functions, rows are entered numbers
+"""
 
 from math import ceil, floor, trunc
 

@@ -1,5 +1,7 @@
-# Data: integers - a, b
-# Task: format output with operator %
+"""
+Data: integers - a, b
+Task: format output with operator %
+"""
 
 from random import randint
 

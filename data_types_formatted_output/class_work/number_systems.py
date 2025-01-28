@@ -1,5 +1,7 @@
-# Data: integer - a
-# Task: print its value in binary, decimal, octal, and hexadecimal
+"""
+Data: integer - a
+Task: print its value in binary, decimal, octal, and hexadecimal
+"""
 
 
 if __name__ == "__main__":

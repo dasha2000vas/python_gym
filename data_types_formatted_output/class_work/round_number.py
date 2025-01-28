@@ -1,6 +1,8 @@
-# Data: float number
-# Task: round this number with round()
-#       5, 3, 2, 1, 0 digits after dot
+"""
+Data: float number
+Task: round this number with round()
+      5, 3, 2, 1, 0 digits after dot
+"""
 
 from random import uniform
 

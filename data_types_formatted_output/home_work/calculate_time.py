@@ -14,7 +14,12 @@ def calculate_time(n: int) -> tuple[int, int, int, int]:
     Returns:
         tuple[int, int, int, int]: Resulting numbers.
     """
-    return  n // 60, n // 3600, n % 60, n % 3600 //60
+    return  (
+        n // 60,
+        n // 3600,
+        n % 60,
+        n % 3600 // 60
+    )
 
 
 if __name__ == "__main__":

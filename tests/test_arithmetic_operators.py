@@ -1,21 +1,6 @@
 from pytest import mark
 
-from arithmetic_operators import (
-    count_of_cabins,
-    calculate_value,
-    calculate_count_of_desks,
-    calculate_y_from_a_and_angle_x,
-    calculate_y_from_a_b_c_d_and_angle_x,
-    calculate_temperature_in_fahrenheit,
-    find_count_of_squares_in_rectangle,
-    find_perimeter_and_square,
-    move_leftmost_digit_to_right_end,
-    define_third_digit_from_end,
-    sum_of_digits,
-    find_b_in_a,
-    find_cost_in_rubles_and_pennies,
-    glue_numbers,
-)
+from arithmetic_operators import *
 
 
 @mark.parametrize("temp_in_celsius,temp_in_fahrenheit", [(25, 77), (40, 104), (60, 140)])

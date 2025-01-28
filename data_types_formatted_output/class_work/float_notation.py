@@ -1,5 +1,7 @@
-# Data: numbers in mathematical and exponential notation
-# Task: write those numbers in another notation
+"""
+Data: numbers in mathematical and exponential notation
+Task: write those numbers in another notation
+"""
 
 
 if __name__ == "__main__":

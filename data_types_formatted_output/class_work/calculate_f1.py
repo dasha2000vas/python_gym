@@ -2,9 +2,9 @@ from math import radians, sin, tan
 from random import randint
 
 
-def calculate_f_1(a: int, in_degrees: bool = False) -> float:
+def calculate_f1(a: int, in_degrees: bool = False) -> float:
     """
-    Calculates the value of the expression f = tg(a) - sin(a).
+    Calculates the value of the expression.
 
     Args:
         a (int): Angle value.
@@ -22,5 +22,5 @@ def calculate_f_1(a: int, in_degrees: bool = False) -> float:
 if __name__ == '__main__':
     a = randint(-100, 100)
     print("a =", a)
-    print("Result if a in radians: %10.5f" % calculate_f_1(a))
-    print("Result if a in degrees: %10.5f" % calculate_f_1(a, True))
+    print("Result if a in radians: %10.5f" % calculate_f1(a))
+    print("Result if a in degrees: %10.5f" % calculate_f1(a, True))
