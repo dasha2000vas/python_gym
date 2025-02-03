@@ -22,8 +22,7 @@ def calculate_u(x: float, y: float, z: float) -> float|str:
 
 
 if __name__ == "__main__":
-    # x, y, z = uniform(-100, 100), uniform(-100, 100), uniform(-100, 100)
-    x, y, z = 10.1, 20.2, 50.5
+    x, y, z = uniform(-100, 100), uniform(-100, 100), uniform(-100, 100)
     print(f"x = {x:.3f} \ny = {y:.3f} \nz = {z:.3f}")
     result = calculate_u(x, y, z)
     print(f"u = {result}" if isinstance(result, float) else result)
