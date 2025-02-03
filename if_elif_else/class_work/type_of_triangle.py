@@ -15,6 +15,8 @@ def type_of_triangle(angle1: int, angle2: int) -> str:
     Returns:
         criteria (str): Type of triangle or message what it doesn't exist.
     """
+    if angle1 <= 0 or angle2 <= 0:
+        raise ValueError("Angle must be between 1 and 180")
     criteria = ""
     angle3 = 180 - angle1 - angle2
     if angle3 <= 0 or angle1 <= 0 or angle2 <= 0:

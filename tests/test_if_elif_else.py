@@ -1,4 +1,5 @@
-import pytest
+from datetime import datetime
+
 from pytest import mark, raises
 
 from if_elif_else import (
@@ -47,6 +48,18 @@ def test_number_sign(num, result):
 )
 def test_type_of_triangle(angle1, angle2, criteria):
     assert type_of_triangle(angle1, angle2) == criteria
+
+
+@mark.parametrize(
+    "angle1,angle2",
+    [
+        (-100, 60),
+        (60, 0)
+    ]
+)
+def test_type_of_triangle_value_error(angle1, angle2):
+    with raises(ValueError, match="Angle must be between 1 and 180"):
+        type_of_triangle(angle1, angle2)
 
 
 @mark.parametrize(
@@ -235,35 +248,90 @@ def test_day_of_delivery(n, k, message):
 
 @mark.parametrize(
     (
-        "h_start_1,m_start_1,s_start_1,"
-        "h_finish_1,m_finish_1,s_finish_1,"
-        "h_start_2,m_start_2,s_start_2,"
-        "h_finish_2,m_finish_2,s_finish_2,"
-        "result"
+        "start1,finish1,start2,finish2,result"
     ),
     [
-        (10, 10, 10, 14, 10, 10, 11, 0, 0, 12, 0, 0, True),
-        (10, 10, 10, 14, 10, 10, 10, 20, 0, 14, 0, 0, True),
-        (10, 10, 10, 14, 10, 10, 10, 10, 0, 14, 10, 0, True),
-        (10, 10, 10, 14, 10, 10, 10, 10, 10, 14, 10, 10, True),
-        (10, 10, 10, 14, 10, 10, 8, 20, 20, 12, 20, 20, True),
-        (10, 10, 10, 14, 10, 10, 12, 20, 20, 18, 20, 20, True),
-        (10, 10, 10, 14, 10, 10, 14, 50, 50, 18, 50, 50, False)
+        (
+            datetime(2024, 5,5, 10, 10, 10),
+            datetime(2024, 5,5,14, 10, 10),
+            datetime(2024, 5,5,11, 0, 0),
+            datetime(2024, 5,5,12, 0, 0),
+            True
+        ),
+        (
+            datetime(2024, 5,5, 10, 10, 10),
+            datetime(2024, 5,5, 14, 10, 10),
+            datetime(2024, 5,5, 10, 20, 0),
+            datetime(2024, 5,5, 14, 0, 0),
+            True
+        ),
+        (
+            datetime(2024, 5,5, 10, 10, 10),
+            datetime(2024, 5,5, 14, 10, 10),
+            datetime(2024, 5,5, 10, 10, 0),
+            datetime(2024, 5,5, 14, 10, 0),
+            True
+        ),
+        (
+            datetime(2024, 5,5, 10, 10, 10),
+            datetime(2024, 5,5, 14, 10, 10),
+            datetime(2024, 5,5, 10, 10, 10),
+            datetime(2024, 5,5, 14, 10, 10),
+            True
+        ),
+        (
+            datetime(2024, 5,5, 10, 10, 10),
+            datetime(2024, 5,5, 14, 10, 10),
+            datetime(2024, 5,5, 8, 20, 20),
+            datetime(2024, 5,5, 12, 20, 20),
+            True
+        ),
+        (
+            datetime(2024, 5,5, 10, 10, 10),
+            datetime(2024, 5,5, 14, 10, 10),
+            datetime(2024, 5,5, 12, 20, 20),
+            datetime(2024, 5,5, 18, 20, 20),
+            True
+        ),
+        (
+            datetime(2024, 5, 5, 22, 0, 0),
+            datetime(2024, 5, 6, 7, 0, 0),
+            datetime(2024, 5, 5, 10, 0, 0),
+            datetime(2024, 5, 6, 9, 0, 0),
+            True
+        ),
+        (
+            datetime(2024, 5,5, 10, 10, 10),
+            datetime(2024, 5,5, 14, 10, 10),
+            datetime(2024, 5,5, 14, 50, 50),
+            datetime(2024, 5,5, 18, 50, 50),
+            False
+        )
     ],
 )
 def test_cross_events(
-    h_start_1, m_start_1, s_start_1,
-    h_finish_1, m_finish_1, s_finish_1,
-    h_start_2, m_start_2, s_start_2,
-    h_finish_2, m_finish_2, s_finish_2,
-    result
+    start1, finish1, start2, finish2, result
 ):
     assert are_events_cross(
-        h_start_1, m_start_1, s_start_1,
-        h_finish_1, m_finish_1, s_finish_1,
-        h_start_2, m_start_2, s_start_2,
-        h_finish_2, m_finish_2, s_finish_2,
+        start1, finish1, start2, finish2
     ) == result
+
+
+@mark.parametrize(
+    "start1,finish1,start2,finish2",
+    [
+        (1, 2, 3, 4),
+        (
+            "2009-07-21 03:29:06",
+            "2009-07-21 23:14:32",
+            "2009-07-21 08:25:19",
+            "2009-07-21 12:02:35",
+        ),
+    ]
+)
+def test_cross_events_value_error(start1, finish1, start2, finish2):
+    with raises(ValueError, match="Both start and finish datetime must be of type datetime."):
+        are_events_cross(start1, finish1, start2, finish2)
 
 
 @mark.parametrize(
