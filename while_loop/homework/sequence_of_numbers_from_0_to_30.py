@@ -1,7 +1,5 @@
 from random import randint
 
-from Homework1.squares_in_a_rectangle import result
-
 
 def sequence_of_numbers_from_0_to_30() -> tuple[list[int],int]:
     """
