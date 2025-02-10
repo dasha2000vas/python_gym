@@ -1,6 +1,19 @@
 from pytest import mark
 
-from data_types_formatted_output import *
+from data_types_formatted_output import (
+    calculate_time,
+    calculate_remainder,
+    calculate_f1,
+    calculate_f2,
+    calculate_sin_cos_tg_of_angle,
+    find_lag_time,
+    find_speed_in_m_s,
+    find_number_of_packages,
+    swap_first_and_last_digits,
+    get_result_of_calculations,
+    probability_of_two_white_balls,
+    glue_numbers_without_last_digits,
+)
 
 
 @mark.parametrize(
