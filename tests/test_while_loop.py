@@ -8,6 +8,11 @@ from while_loop import (
     sum_of_local_min,
     generating_series,
     solving_equation,
+    sequence_ends_with_positive_number,
+    get_powers_of_2,
+    define_power_of_2,
+    increasing_athletes_run,
+    get_lowest_simple_divider,
 )
 
 
@@ -141,49 +146,105 @@ def test_solving_equation():
     assert solving_equation() == 0.33758544921875
 
 
-# @mark.parametrize(
-#     "",
-#     [
-#         (),
-#         (),
-#         (),
-#     ]
-# )
-# def test_():
-#     assert
-#
-#
-# @mark.parametrize(
-#     "",
-#     [
-#         (),
-#         (),
-#         (),
-#     ]
-# )
-# def test_():
-#     with raises(ValueError, match=message):
+def test_sequence_ends_with_positive_number():
+    assert sequence_ends_with_positive_number()[-1] > 0
 
 
-# @mark.parametrize(
-#     "",
-#     [
-#         (),
-#         (),
-#         (),
-#     ]
-# )
-# def test_():
-#     assert
-#
-#
-# @mark.parametrize(
-#     "",
-#     [
-#         (),
-#         (),
-#         (),
-#     ]
-# )
-# def test_():
-#     with raises(ValueError, match=message):
+@mark.parametrize(
+    "n,result",
+    [
+        (10, [1, 2, 3]),
+        (100, [1, 2, 3, 4, 5, 6]),
+        (300, [1, 2, 3, 4, 5, 6, 7, 8]),
+    ]
+)
+def test_powers_of_2(n, result):
+    assert get_powers_of_2(n) == result
+
+
+@mark.parametrize(
+    "n, message",
+    [
+        ("10", "n must be integer"),
+        (10.111, "n must be integer"),
+        (-10, "n must be positive"),
+    ]
+)
+def test_powers_of_2(n, message):
+    with raises(ValueError, match=message):
+        get_powers_of_2(n)
+
+
+@mark.parametrize(
+    "n,result",
+    [
+        (7, 3),
+        (8, 3),
+        (9, 4),
+    ]
+)
+def test_define_power_of_2(n, result):
+    assert define_power_of_2(n) == result
+
+
+@mark.parametrize(
+    "n,message",
+    [
+        ("10", "n must be integer"),
+        (10.111, "n must be integer"),
+        (-10, "n must be positive"),
+    ]
+)
+def test_define_power_of_2(n, message):
+    with raises(ValueError, match=message):
+        define_power_of_2(n)
+
+
+@mark.parametrize(
+    "first_day_distance,goal_distance,days",
+    [
+        (10, 19, 8),
+        (5, 10, 9),
+        (6, 12, 9),
+    ]
+)
+def test_athletes_run(first_day_distance, goal_distance, days):
+    assert increasing_athletes_run(first_day_distance, goal_distance) == days
+
+
+@mark.parametrize(
+    "first_day_distance,goal_distance,message",
+    [
+        (10, "19", "All numbers must be integers"),
+        (10, 19.999, "All numbers must be integers"),
+        (10, -19, "All numbers must be positive"),
+    ]
+)
+def test_athletes_run(first_day_distance, goal_distance, message):
+    with raises(ValueError, match=message):
+        increasing_athletes_run(first_day_distance, goal_distance)
+
+
+@mark.parametrize(
+    "num,divider",
+    [
+        (79, 79),
+        (77, 7),
+        (14, 2),
+    ]
+)
+def test_lowest_simple_divider(num,divider):
+    assert get_lowest_simple_divider(num) == divider
+
+
+@mark.parametrize(
+    "num,message",
+    [
+        ("10", "num must be integer"),
+        (10.111, "num must be integer"),
+        (1, "num cannot be less than 2"),
+    ]
+)
+def test_lowest_simple_divider(num, message):
+    with raises(ValueError, match=message):
+        get_lowest_simple_divider(num)
