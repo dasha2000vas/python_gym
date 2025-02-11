@@ -14,7 +14,9 @@ def solving_equation() -> float:
     while b - a >= 0.0001:
         x = (b + a) / 2
         result = 0.5 * x - 0.5 + sin(x)
-        if result < 0:
+        if result == 0:
+            return x
+        elif result < 0:
             a = x
         elif result > 0:
             b = x

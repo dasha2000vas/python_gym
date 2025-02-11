@@ -9,7 +9,7 @@ def sum_of_local_min(numbers: list[int]) -> int:
         numbers (list[int]): List of non-zero numbers.
 
     Returns:
-        int: Sum of local minimums.
+        result(int): Sum of local minimums.
     """
     for number in numbers:
         if not isinstance(number, int):
@@ -17,10 +17,9 @@ def sum_of_local_min(numbers: list[int]) -> int:
         if number == 0:
             raise ValueError("All numbers cannot be 0")
     result = 0
-    min_number = min(numbers)
-    for number in numbers:
-        if number == min_number:
-            result += min_number
+    for i in range(1, len(numbers) - 2):
+        if numbers[i-1] > numbers[i] < numbers[i+1]:
+            result += numbers[i]
     return result
 
 
