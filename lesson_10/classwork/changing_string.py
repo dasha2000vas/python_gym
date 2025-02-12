@@ -28,7 +28,6 @@ def changing_string(original_string: str) -> str:
 
 
 if __name__ == '__main__':
-    # original_string = random_string(words=1, letters=ascii_letters)
-    original_string = "bird"
+    original_string = random_string(words=1, letters=ascii_letters)
     print(f"Original string: {original_string}")
     print(f"Modified string: {changing_string(original_string)}")

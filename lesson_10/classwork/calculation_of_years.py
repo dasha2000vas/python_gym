@@ -30,7 +30,7 @@ def calculation_of_years(name: str, age: int) -> float:
 
 
 if __name__ == '__main__':
-    name, age = random_string(words=2, letters=ascii_letters, mode="name"), randint(1, 130)
+    name, age = random_string(words=2, letters=ascii_letters), randint(1, 130)
     print(f"Name: {name}")
     print(f"Age: {age}")
     years = calculation_of_years(name, age)
