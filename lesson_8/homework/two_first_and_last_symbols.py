@@ -20,7 +20,7 @@ def two_first_and_last_symbols(original_string: str) -> str:
         raise ValueError('Original must be a string')
     if len(original_string) < 2:
         return ""
-    return original_string[0:2] + original_string[-2:]
+    return original_string[:2] + original_string[-2:]
 
 
 if __name__ == '__main__':

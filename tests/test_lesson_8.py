@@ -1,6 +1,6 @@
 from pytest import mark, raises
 
-from lesson_9 import (
+from lesson_8 import (
     sum_of_digits_from_str,
     calculation_of_years,
     changing_string,
