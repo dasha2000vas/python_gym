@@ -1,5 +1,5 @@
-from random import randint
-
+from random import randint, choice
+from string import ascii_letters, digits
 
 def drop_fractional_part(number: float) -> int:
     return int(number)
@@ -14,3 +14,14 @@ def random_numbers_of_same_parity() -> tuple[int, int]:
         else:
             a += 1
     return a, b
+
+
+def random_string(words: int, letters, mode: None | str = None) -> str:
+    string = ""
+    for _ in range(words):
+        if string and mode == "spaces":
+            string += " " * randint(2, 10)
+        elif string: string += " "
+        for i in range(randint(1, 10)):
+             string += choice(letters)
+    return string
