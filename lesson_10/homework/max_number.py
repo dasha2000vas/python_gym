@@ -15,9 +15,7 @@ def max_number_of_two(num1: int, num2: int) -> int:
     for num in (num1, num2):
         if not isinstance(num, int):
             raise ValueError("All args must be integers")
-    if num1 >= num2:
-        return num1
-    return num2
+    return max(num1, num2)
 
 
 def max_number_of_three(num1: int, num2: int, num3: int) -> int:
@@ -35,11 +33,7 @@ def max_number_of_three(num1: int, num2: int, num3: int) -> int:
     for num in (num1, num2, num3):
         if not isinstance(num, int):
             raise ValueError("All args must be integers")
-    max1 = max_number_of_two(num1, num2)
-    max2 = max_number_of_two(num2, num3)
-    if max1 >= max2:
-        return max1
-    return max2
+    return max_number_of_two(max_number_of_two(num1, num2), num3)
 
 
 def max_number_of_four(num1: int, num2: int, num3: int, num4: int) -> int:
@@ -58,11 +52,7 @@ def max_number_of_four(num1: int, num2: int, num3: int, num4: int) -> int:
     for num in (num1, num2, num3, num4):
         if not isinstance(num, int):
             raise ValueError("All args must be integers")
-    max1 = max_number_of_two(num1, num2)
-    max2 = max_number_of_two(num3, num4)
-    if max1 >= max2:
-        return max1
-    return max2
+    return max_number_of_two(max_number_of_two(num1, num2), max_number_of_two(num3, num4))
 
 
 if __name__ == '__main__':
