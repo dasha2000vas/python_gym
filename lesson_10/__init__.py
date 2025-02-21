@@ -1,0 +1,14 @@
+from lesson_10.classwork.write_string_n_times import write_string_n_times
+from lesson_10.classwork.congratulation import congratulation
+from lesson_10.classwork.get_hypotenuse import get_hypotenuse
+from lesson_10.classwork.sum_of_cubes_of_digits import is_number_equal_to_its_sum_of_cubes_of_digits
+from lesson_10.classwork.cylinder_area import get_cylinder_area
+from lesson_10.classwork.roots_count import get_roots_count
+from lesson_10.homework.sum_of_series import get_sum_of_series
+from lesson_10.homework.sum_of_series2 import get_sum_of_series2
+from lesson_10.homework.sum_of_harmonic_series import get_sum_of_harmonic_series
+from lesson_10.homework.max_number import max_number_of_four, max_number_of_two, max_number_of_three
+from lesson_10.homework.num_which_fact_is_less_than_n import find_num_which_fact_is_less_than_n
+from lesson_10.homework.max_digit_in_number import get_max_digit_in_number
+from lesson_10.homework.is_number_in_range import is_number_in_range
+from lesson_10.homework.simple_calculator import simple_calculator
