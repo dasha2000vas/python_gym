@@ -1,6 +1,6 @@
 """
-Data: integers - a, b
-Task: format output with operator %
+Generates two integers (a, b) and
+formats output with operator %.
 """
 
 from random import randint

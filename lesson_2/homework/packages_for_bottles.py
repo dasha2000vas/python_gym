@@ -14,6 +14,11 @@ def find_number_of_packages(n: int, k: int) -> int:
     Returns:
         int: Number of packages.
     """
+    for number in (n, k):
+        if not isinstance(number, int):
+            raise ValueError('All args must be integers')
+        if number <= 0:
+            raise ValueError('All numbers must be positive')
     return ceil(n / k)
 
 

@@ -1,6 +1,6 @@
 from pytest import mark
 
-from arithmetic_operators import (
+from lesson_1 import (
     count_of_cabins,
     calculate_value,
     calculate_count_of_desks,

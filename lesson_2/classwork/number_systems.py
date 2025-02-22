@@ -1,11 +1,12 @@
 """
-Data: integer - a
-Task: print its value in binary, decimal, octal, and hexadecimal
+Prints value of number (a) in binary,
+decimal, octal, and hexadecimal.
 """
 
+from random import randint
 
 if __name__ == "__main__":
-    a = int(input("a = "))
+    a = randint(-100, 100)
     print(a, "in the binary system", bin(a))
     print(a, "in the decimal system", a)
     print(a, "in the octal system", oct(a))

@@ -12,6 +12,11 @@ def calculate_remainder(n: int, k: int) -> int :
     Returns:
         int: The resulting number.
     """
+    for number in (n, k):
+        if not isinstance(number, int):
+            raise ValueError("All args must be integers")
+        if number <= 0:
+            raise ValueError("All numbers must be positive")
     return int(str(n) * 1000) % k
 
 

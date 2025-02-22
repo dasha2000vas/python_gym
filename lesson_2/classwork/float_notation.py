@@ -1,6 +1,6 @@
 """
-Data: numbers in mathematical and exponential notation
-Task: write those numbers in another notation
+Writes numbers in different notation:
+mathematical, exponential and decimal fraction.
 """
 
 

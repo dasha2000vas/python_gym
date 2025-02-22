@@ -1,6 +1,5 @@
 """
-Data: variables - a, b, c, d, f
-Task: print the type of each variable and its ID
+Prints type of each variable (a, b, c, d, f) and its ID.
 """
 
 if __name__ == "__main__":

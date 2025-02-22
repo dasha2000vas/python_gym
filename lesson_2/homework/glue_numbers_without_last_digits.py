@@ -13,6 +13,11 @@ def glue_numbers_without_last_digits(a: int, b: int) -> int:
     Returns:
         int: The resulting number.
     """
+    for number in (a, b):
+        if not isinstance(number, int):
+            raise ValueError("All args must be an integers")
+        if not 100 <= number <= 999:
+            raise ValueError("All numbers must be between 100 and 999")
     return a // 10 * 100 + b // 10
 
 

@@ -14,6 +14,13 @@ def probability_of_two_white_balls(n: int, m: int) -> float:
     Returns:
         float: The percentage probability.
     """
+    for number in (n, m):
+        if not isinstance(number, int):
+            raise ValueError("All args must be integers")
+    if n < 2:
+        raise ValueError("Number n must be greater or equal 2")
+    if m < 0:
+        raise ValueError("Number m must be greater or equal 0")
     probability_n = factorial(n) / (factorial(n - 2) * 2)
     probability_all = factorial(m + n) / (factorial(m + n - 2) * 2)
     return probability_n / probability_all * 100

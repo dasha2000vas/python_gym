@@ -17,6 +17,16 @@ def find_lag_time(hr_1: int, min_1: int, sec_1: int, hr_2: int, min_2: int, sec_
     Returns:
         int: Lag time in seconds.
     """
+    for number in (hr_1, hr_2, min_1, min_2, sec_1, sec_2):
+        if not isinstance(number, int):
+            raise ValueError("All args must be integers")
+        if number < 0:
+            raise ValueError("Numbers cannot be negative")
+    for number in (min_1, min_2, sec_1, sec_2):
+        if not 0 <= number <= 59:
+            raise ValueError("Minutes and seconds must be between 0 and 59")
+    if hr_1 * 3600 + min_1 * 60 + sec_1 > hr_2 * 3600 + min_2 * 60 + sec_2:
+        raise ValueError("Time of winner cannot be greater than time of next opponent")
     return (hr_2 - hr_1) * 3600 + (min_2 - min_1) * 60 + (sec_2 - sec_1)
 
 

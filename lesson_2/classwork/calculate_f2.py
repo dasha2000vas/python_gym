@@ -12,6 +12,8 @@ def calculate_f2(a: int) -> float:
     Returns:
         float: The resulting number.
     """
+    if not isinstance(a, int):
+        raise ValueError('Object a must be integer')
     a = radians(a)
     return abs(tan(a) - sin(a ** 3))
 

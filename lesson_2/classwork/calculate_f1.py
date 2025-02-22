@@ -14,6 +14,10 @@ def calculate_f1(a: int, in_degrees: bool = False) -> float:
     Returns:
         float: The resulting number.
     """
+    if not isinstance(a, int):
+        raise ValueError('Object a must be integer')
+    if not isinstance(in_degrees, bool):
+        raise ValueError('Object in_degrees must be boolean')
     if in_degrees:
         a = radians(a)
     return round(tan(a) - sin(a), 5)

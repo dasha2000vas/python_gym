@@ -1,7 +1,7 @@
 """
-Data: float number
-Task: round this number with round()
-      5, 3, 2, 1, 0 digits after dot
+Generates float number (a).
+Rounds this number with round():
+5, 3, 2, 1, 0 digits after dot.
 """
 
 from random import uniform
