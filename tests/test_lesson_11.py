@@ -176,27 +176,3 @@ def test_sum_of_series_value_error(number, n, message):
     with raises(ValueError, match=message):
         sum_of_series_iteratively(number, n)
         sum_of_series_recursively(number, n)
-
-
-# @mark.parametrize(
-#     "",
-#     [
-#         (),
-#         (),
-#         (),
-#     ]
-# )
-# def test_():
-#     assert
-#
-#
-# @mark.parametrize(
-#     "message",
-#     [
-#         (),
-#         (),
-#         (),
-#     ]
-# )
-# def test__value_error():
-#     with raises(ValueError, match=message):
