@@ -25,6 +25,7 @@ def calculate_profit_indicators(first_profit: int | float, percent: int, years: 
     for number in (first_profit, percent, years):
         if number <= 0:
             raise ValueError("All args must be positive")
+    if years == 1: return 0
     if years == 2: return first_profit
     return round(calculate_profit_indicators(
         first_profit + first_profit / 100 * percent,

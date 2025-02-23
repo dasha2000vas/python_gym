@@ -1,7 +1,7 @@
 from pytest import mark, raises
 
 
-from lesson_11 import (
+from recursion import (
     get_sum_from_1_to_n,
     raise_number_to_power_of_n,
     get_factorial_iteratively,
@@ -96,6 +96,7 @@ def test_factorial_of_number_value_error(number, message):
     "first_profit,percent,years,result",
     [
         (100, 10, 5, 133.1),
+        (100, 10, 1, 0),
         (163, 3, 9, 200.469),
         (492, 3, 10, 623.251),
     ]
