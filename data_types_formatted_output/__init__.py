@@ -1,0 +1,18 @@
+from data_types_formatted_output.classwork.calculate_expression1 import calculate_expression1, ExpressionValues1
+from data_types_formatted_output.classwork.calculate_expression2 import calculate_expression2, ExpressionValue
+from data_types_formatted_output.classwork.calculate_remainder import calculate_remainder, ValuesForCalculatingRemainder
+from data_types_formatted_output.classwork.speed import get_speed_in_ms, ValuesForFindingSpeed
+from data_types_formatted_output.homework.calculate_time import calculate_time, TimeInSeconds
+from data_types_formatted_output.homework.first_and_last_digits import swap_first_and_last_digits, ThreeDigitNumber
+from data_types_formatted_output.homework.glue_numbers_without_last_digits import (
+    glue_numbers_without_last_digits,
+    ThreeDigitNumbers,
+)
+from data_types_formatted_output.homework.lag_time import find_lag_time, TimeValues
+from data_types_formatted_output.homework.packages_for_bottles import find_number_of_packages, BottleValues
+from data_types_formatted_output.homework.probability_2_white_balls import (
+    probability_of_two_white_balls,
+    BallsValues,
+)
+from data_types_formatted_output.homework.result_of_calculations import get_result_of_calculations, ValuesForCalculation
+from data_types_formatted_output.homework.sin_cos_tg_of_angle import calculate_sin_cos_tg_of_angle, DegreeValues
