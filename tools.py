@@ -2,35 +2,18 @@ from random import randint
 
 
 def drop_fractional_part(number: float) -> int:
-    """
-    Drops fractional part of given number.
-
-    Args:
-        number (float): Float number.
-
-    Returns:
-        int: Dropped number.
-    """
     return int(number)
 
 
 def random_numbers_of_same_parity() -> tuple[int, int]:
-    """
-    Generates two random
-    numbers of same parity.
-
-    Returns:
-        a (int): First number.
-        b (int): Second number.
-    """
-    a = randint(1, 5)
-    b = randint(15, 20)
-    if not (a % 2 == 0 and b % 2 == 0) and not (a % 2 == 1 and b % 2 == 1):
-        if a != 1:
-            a -= 1
+    number1 = randint(1, 5)
+    number2 = randint(15, 20)
+    if not (number1 % 2 == 0 and number2 % 2 == 0) and not (number1 % 2 == 1 and number2 % 2 == 1):
+        if number1 != 1:
+            number1 -= 1
         else:
-            a += 1
-    return a, b
+            number1 += 1
+    return number1, number2
 
 
 def random_time_for_winner_and_second() -> tuple[int, int, int, int, int, int]:
