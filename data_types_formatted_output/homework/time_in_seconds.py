@@ -1,13 +1,14 @@
 from random import randint
 
-from pydantic import BaseModel, Field
+
+def check_value(time_in_seconds: int) -> None:
+    if not isinstance(time_in_seconds, int):
+        raise ValueError('Object time_in_seconds must be integer')
+    if 86400 < time_in_seconds or time_in_seconds < 0:
+        raise ValueError('Number time_in_seconds must be between 0 and 86400 (inclusive)')
 
 
-class TimeInSeconds(BaseModel):
-    time_in_seconds: int = Field(ge=0, le=86400, description="Number of seconds.")
-
-
-def calculate_time(value: TimeInSeconds) -> tuple[int, int, int, int]:
+def translate_from_seconds(time_in_seconds: int) -> tuple[int, int, int, int]:
     """
     Calculates number of full minutes since the beginning of the day,
     number of full hours since the beginning of the day,
@@ -15,25 +16,24 @@ def calculate_time(value: TimeInSeconds) -> tuple[int, int, int, int]:
     number of minutes since the beginning of the last hour.
 
     Args:
-        value (TimeInSeconds)
+        time_in_seconds (int): Number of seconds since the beginning of the day.
 
     Returns:
         tuple[int, int, int, int]: Resulting numbers.
     """
+    check_value(time_in_seconds)
     return  (
-        value.time_in_seconds // 60,
-        value.time_in_seconds // 3600,
-        value.time_in_seconds % 60,
-        value.time_in_seconds % 3600 // 60
+        time_in_seconds // 60,
+        time_in_seconds // 3600,
+        time_in_seconds % 60,
+        time_in_seconds % 3600 // 60
     )
 
 
 if __name__ == "__main__":
     time_in_seconds = randint(0, 86400)
     print("Number of seconds:", time_in_seconds)
-    full_min, full_hr, remain_sec, remain_min = calculate_time(
-        TimeInSeconds(time_in_seconds=time_in_seconds)
-    )
+    full_min, full_hr, remain_sec, remain_min = translate_from_seconds(time_in_seconds)
     print("Full minutes since the beginning of the day:", full_min)
     print("Full hours since the beginning of the day:", full_hr)
     print("Seconds since the beginning of the last minute:", remain_sec)

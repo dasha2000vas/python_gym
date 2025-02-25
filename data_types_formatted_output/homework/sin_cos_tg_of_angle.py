@@ -3,6 +3,7 @@ from random import randint
 
 from pydantic import BaseModel, Field
 
+
 class DegreeValues(BaseModel):
     degrees: int = Field(description="Number of degrees")
     minutes: int = Field(ge=0, le=59, description="Number of minutes")
@@ -24,9 +25,8 @@ def calculate_sin_cos_tg_of_angle(
 if __name__ == "__main__":
     degrees, minutes, seconds = randint(-360, 360), randint(0, 59), randint(0, 59)
     print("Degrees of the angle:", degrees, "\nMinutes of the angle:", minutes, "\nSeconds of the angle:", seconds)
-    rad, sin, cos, tan = calculate_sin_cos_tg_of_angle(
-        DegreeValues(degrees=degrees, minutes=minutes, seconds=seconds)
-    )
+    values = DegreeValues(degrees=degrees, minutes=minutes, seconds=seconds)
+    rad, sin, cos, tan = calculate_sin_cos_tg_of_angle(values)
     print("%d d %d ' %d '' = %.2f radians" %(degrees, minutes, seconds, rad))
     print("sin( %d d %d ' %d '' ) = %.2f" %(degrees, minutes, seconds, sin))
     print("cos( %d d %d ' %d '' ) = %.2f" %(degrees, minutes, seconds, cos))

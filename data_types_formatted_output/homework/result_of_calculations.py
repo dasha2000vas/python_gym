@@ -27,7 +27,8 @@ def get_result_of_calculations(values: ValuesForCalculation) -> float:
 if __name__ == "__main__":
     number, count_of_times, power = randint(100, 999), randint(1, 10), randint(1, 50)
     print("Number =", number, "\nCount of times =", count_of_times, "\nPower =", power)
-    result = get_result_of_calculations(
-        ValuesForCalculation(number=number, count_of_times=count_of_times, power=power)
+    values = ValuesForCalculation(
+        number=number, count_of_times=count_of_times, power=power
     )
+    result = get_result_of_calculations(values)
     print("Result: %.3f" %result)

@@ -34,8 +34,9 @@ if __name__ == "__main__":
     hr_1, min_1, sec_1, hr_2, min_2, sec_2 = random_time_for_winner_and_second()
     print("Hr of the winner:", hr_1, "\nMin of the winner:", min_1, "\nSec of the winner:", sec_1)
     print("Hr of the second:", hr_2, "\nMin of the second:", min_2, "\nSec of the second:", sec_2)
-    lag_time = find_lag_time(TimeValues(
+    values = TimeValues(
         hr_1=hr_1, min_1=min_1, sec_1=sec_1,
         hr_2=hr_2, min_2=min_2, sec_2=sec_2
-    ))
+    )
+    lag_time = find_lag_time(values)
     print("Seconds lag:", lag_time)

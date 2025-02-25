@@ -1,28 +1,20 @@
 from pytest import mark, raises
 
 from data_types_formatted_output import (
-    calculate_time,
+    translate_from_seconds,
     calculate_remainder,
     calculate_expression1,
-    ExpressionValues1,
+    ExpressionValues,
     calculate_expression2,
-    ExpressionValue,
     calculate_sin_cos_tg_of_angle,
     find_lag_time,
     get_speed_in_ms,
     find_number_of_packages,
     swap_first_and_last_digits,
     get_result_of_calculations,
-    probability_of_two_white_balls,
+    get_probability_of_two_white_balls,
     glue_numbers_without_last_digits,
-    ValuesForCalculatingRemainder,
-    ValuesForFindingSpeed,
-    TimeInSeconds,
-    ThreeDigitNumber,
-    ThreeDigitNumbers,
     TimeValues,
-    BottleValues,
-    BallsValues,
     ValuesForCalculation,
     DegreeValues,
 )
@@ -34,97 +26,96 @@ from data_types_formatted_output import (
 
     [(3, -0.28367, 0.00007), (10, 1.19238, 0.00268), (100, -0.08085, -6.65609)]
 )
-def test_calculate_expression1(angle_value, result_if_a_in_radians, result_if_a_in_degrees):
+def test_expression1(angle_value, result_if_a_in_radians, result_if_a_in_degrees):
     assert calculate_expression1(
-        ExpressionValues1(angle_value=angle_value)
+        ExpressionValues(angle_value=angle_value)
     ) == result_if_a_in_radians
     assert calculate_expression1(
-        ExpressionValues1(angle_value=angle_value, in_degrees=True)
+        ExpressionValues(angle_value=angle_value, in_degrees=True)
     ) == result_if_a_in_degrees
 
 
 @mark.parametrize(
     "angle_value,in_degrees,message",
     [
-        ("a", True, '\nangle_value\n  Input should be a valid integer'),
-        (1.111, True, '\nangle_value\n  Input should be a valid integer'),
+        ("a", True, '\nangle_value.int\n  Input should be a valid integer'),
         (1, "a", '\nin_degrees\n  Input should be a valid boolean'),
     ]
 )
-def test_calculate_expression1_value_error(angle_value, in_degrees, message):
+def test_expression1_value_error(angle_value, in_degrees, message):
     with raises(ValueError, match=message):
-        ExpressionValues1(angle_value=angle_value, in_degrees=in_degrees)
+        ExpressionValues(angle_value=angle_value, in_degrees=in_degrees)
 
 
 @mark.parametrize(
     "number,divider,result",
     [(472, 15, 7), (100, 3, 1), (999, 25, 24)],
 )
-def test_calculate_remainder(number, divider, result):
+def test_remainder(number, divider, result):
     assert calculate_remainder(
-        ValuesForCalculatingRemainder(number=number, divider=divider)
+        number, divider
     ) == result
 
 
 @mark.parametrize(
     "number,divider,message",
     [
-        ("a", 2, '\nnumber\n  Input should be a valid integer'),
-        (2, "a", '\ndivider\n  Input should be a valid integer'),
-        (0, 2, "\nnumber\n  Input should be greater than 0"),
-        (2, -2, "\ndivider\n  Input should be greater than 0"),
+        ("a", 2, "All args must be integers"),
+        (2, "a", "All args must be integers"),
+        (0, 2, "All numbers must be positive"),
+        (2, -2, "All numbers must be positive"),
     ]
 )
-def test_calculate_remainder_value_error(number, divider, message):
+def test_remainder_value_error(number, divider, message):
     with raises(ValueError, match=message):
-        ValuesForCalculatingRemainder(number=number, divider=divider)
+        calculate_remainder(number, divider)
 
 
 @mark.parametrize(
-    "time,distance,speed",
+    "time_in_hr,distance_in_km,speed",
     [(1, 60, 16.667), (5, 237, 13.167), (10, 543, 15.083)],
 )
-def test_speed_in_m_s(time, distance, speed):
+def test_speed_in_ms(time_in_hr, distance_in_km, speed):
     assert round(get_speed_in_ms(
-        ValuesForFindingSpeed(time=time, distance=distance)
+        time_in_hr, distance_in_km
     ), 3) == speed
 
 
 @mark.parametrize(
-    "time,distance,message",
+    "time_in_hr,distance_in_km,message",
     [
-        ("a", 10, '\ntime\n  Input should be a valid integer'),
-        (1, "a", '\ndistance\n  Input should be a valid integer'),
-        (0, 10, "\ntime\n  Input should be greater than 0"),
-        (1, -10, "\ndistance\n  Input should be greater than 0"),
+        ("a", 10, "All args must be integers"),
+        (1, "a", "All args must be integers"),
+        (0, 10, "All numbers must be positive"),
+        (1, -10, "All numbers must be positive"),
     ]
 )
-def test_speed_in_m_s_value_error(time, distance, message):
+def test_speed_in_ms_value_error(time_in_hr, distance_in_km, message):
     with raises(ValueError, match=message):
-        ValuesForFindingSpeed(time=time, distance=distance)
+        get_speed_in_ms(time_in_hr, distance_in_km)
 
 
 @mark.parametrize(
-    "angle_value,result",
+    "angle_value_in_degrees,result",
     [(45, 0.534), (-100, 4.848), (360, -0.135)],
 )
-def test_calculate_expression2(angle_value, result):
+def test_expression2(angle_value_in_degrees, result):
     assert round(calculate_expression2(
-        ExpressionValue(angle_value=angle_value)
+        angle_value_in_degrees
     ), 3) == result
 
 
 @mark.parametrize(
-    "angle_value,message",
+    "angle_value_in_degrees,message",
     [
-        ("a", '\nangle_value\n  Input should be a valid integer'),
-        (1.111, '\nangle_value\n  Input should be a valid integer'),
-        ([1], '\nangle_value\n  Input should be a valid integer'),
+        ("a", 'Object angle_value_in_degrees must be integer'),
+        (1.111, 'Object angle_value_in_degrees must be integer'),
+        ([1], 'Object angle_value_in_degrees must be integer'),
     ]
 )
-def test_calculate_expression2_value_error(angle_value, message):
+def test_expression2_value_error(angle_value_in_degrees, message):
     with raises(ValueError, match=message):
-        ExpressionValue(angle_value=angle_value)
+        calculate_expression2(angle_value_in_degrees)
 
 
 @mark.parametrize(
@@ -132,47 +123,45 @@ def test_calculate_expression2_value_error(angle_value, message):
     [(123, 321), (450, 54), (987, 789)],
 )
 def test_first_and_last_digits(number, result):
-    assert swap_first_and_last_digits(
-        ThreeDigitNumber(number=number)
-    ) == result
+    assert swap_first_and_last_digits(number) == result
 
 
 @mark.parametrize(
     "number,message",
     [
-        ("a", '\nnumber\n  Input should be a valid integer'),
-        (100.111, '\nnumber\n  Input should be a valid integer'),
-        (99, '\nnumber\n  Input should be greater than or equal to 100'),
-        (1000, '\nnumber\n  Input should be less than or equal to 999')
+        ("a", 'Object number must be integer'),
+        (100.111, 'Object number must be integer'),
+        (99, 'Number must be between 100 and 999'),
+        (1000, 'Number must be between 100 and 999')
     ]
 )
 def test_first_and_last_digits_value_error(number, message):
     with raises(ValueError, match=message):
-        ThreeDigitNumber(number=number)
+        swap_first_and_last_digits(number)
 
 
 @mark.parametrize(
     "number1,number2,result",
     [(123, 456, 1245), (100, 200, 1020), (999, 707, 9970)],
 )
-def test_glue_numbers_without_last_digits(number1, number2, result):
+def test_glueing_numbers(number1, number2, result):
     assert glue_numbers_without_last_digits(
-        ThreeDigitNumbers(number1=number1, number2=number2)
+        number1, number2
     ) == result
 
 
 @mark.parametrize(
     "number1,number2,message",
     [
-        ("a", 100, '\nnumber1\n  Input should be a valid integer'),
-        (100, 100.111, '\nnumber2\n  Input should be a valid integer'),
-        (99, 100, '\nnumber1\n  Input should be greater than or equal to 100'),
-        (100, 1000, '\nnumber2\n  Input should be less than or equal to 999')
+        ("a", 100, 'All args must be integers'),
+        (100, 100.111, 'All args must be integers'),
+        (99, 100, 'All numbers must be between 100 and 999'),
+        (100, 1000, 'All numbers must be between 100 and 999')
     ]
 )
-def test_glue_numbers_without_last_digits_value_error(number1, number2, message):
+def test_glueing_numbers_value_error(number1, number2, message):
     with raises(ValueError, match=message):
-        ThreeDigitNumbers(number1=number1, number2=number2)
+        glue_numbers_without_last_digits(number1, number2)
 
 
 @mark.parametrize(
@@ -238,22 +227,22 @@ def test_lag_time_value_error(hr_1, min_1, sec_1, hr_2, min_2, sec_2, message):
 )
 def test_packages_for_bottles(number_of_bottles, one_package_hold, result):
     assert find_number_of_packages(
-        BottleValues(number_of_bottles=number_of_bottles, one_package_hold=one_package_hold)
+        number_of_bottles, one_package_hold
     ) == result
 
 
 @mark.parametrize(
     "number_of_bottles,one_package_hold,message",
     [
-        ("a", 10, '\nnumber_of_bottles\n  Input should be a valid integer'),
-        (20, 10.111, '\none_package_hold\n  Input should be a valid integer'),
-        (0, 100, '\nnumber_of_bottles\n  Input should be greater than 0'),
-        (20, -10, '\none_package_hold\n  Input should be greater than 0')
+        ("a", 10, "All args must be integers"),
+        (20, 10.111, "All args must be integers"),
+        (0, 100, "All numbers must be positive"),
+        (20, -10, "All numbers must be positive")
     ]
 )
 def test_packages_for_bottles_value_error(number_of_bottles, one_package_hold, message):
     with raises(ValueError, match=message):
-        BottleValues(number_of_bottles=number_of_bottles, one_package_hold=one_package_hold)
+        find_number_of_packages(number_of_bottles, one_package_hold)
 
 
 @mark.parametrize(
@@ -261,53 +250,45 @@ def test_packages_for_bottles_value_error(number_of_bottles, one_package_hold, m
     [(7, 10, 15.44), (22, 30, 17.42), (5, 2, 47.62)]
 )
 def test_probability_2_white_balls(count_of_white_balls, count_of_black_balls, result):
-    assert round(probability_of_two_white_balls(
-        BallsValues(
-            count_of_white_balls=count_of_white_balls,
-            count_of_black_balls=count_of_black_balls
-        )
+    assert round(get_probability_of_two_white_balls(
+        count_of_white_balls, count_of_black_balls
     ), 2) == result
 
 
 @mark.parametrize(
     "count_of_white_balls,count_of_black_balls,message",
     [
-        ("a", 1, "\ncount_of_white_balls\n  Input should be a valid integer"),
-        (2, 1.111, "\ncount_of_black_balls\n  Input should be a valid integer"),
-        (1, 1, "\ncount_of_white_balls\n  Input should be greater than or equal to 2"),
-        (2, -1, "\ncount_of_black_balls\n  Input should be greater than or equal to 0")
+        ("a", 1, "All args must be integers"),
+        (2, 1.111, "All args must be integers"),
+        (1, 1, "Number count_of_white_balls must be greater or equal 2"),
+        (2, -1, "Number count_of_black_balls must be greater or equal 0"),
     ]
 )
 def test_probability_2_white_balls_value_error(count_of_white_balls, count_of_black_balls, message):
     with raises(ValueError, match=message):
-        BallsValues(
-            count_of_white_balls=count_of_white_balls,
-            count_of_black_balls=count_of_black_balls
-        )
+        get_probability_of_two_white_balls(count_of_white_balls, count_of_black_balls)
 
 
 @mark.parametrize(
     "time_in_seconds,full_min,full_hr,remain_sec,remain_min",
     [(3665, 61, 1, 5, 1), (86400, 1440, 24, 0, 0), (3500, 58, 0, 20, 58)]
 )
-def test_calculate_time(time_in_seconds, full_min, full_hr, remain_sec, remain_min):
-    assert calculate_time(
-        TimeInSeconds(time_in_seconds=time_in_seconds)
-    ) == (full_min, full_hr, remain_sec, remain_min)
+def test_time_in_seconds(time_in_seconds, full_min, full_hr, remain_sec, remain_min):
+    assert translate_from_seconds(time_in_seconds) == (full_min, full_hr, remain_sec, remain_min)
 
 
 @mark.parametrize(
     "time_in_seconds,message",
     [
-        ("a", '\ntime_in_seconds\n  Input should be a valid integer'),
-        (1.111, '\ntime_in_seconds\n  Input should be a valid integer'),
-        (-1, '\ntime_in_seconds\n  Input should be greater than or equal to 0'),
-        (87400, '\ntime_in_seconds\n  Input should be less than or equal to 86400')
+        ("a", 'Object time_in_seconds must be integer'),
+        (1.111, 'Object time_in_seconds must be integer'),
+        (-1, 'Number time_in_seconds must be between 0 and 86400'),
+        (87400, 'Number time_in_seconds must be between 0 and 86400')
     ]
 )
-def test_calculate_time_value_error(time_in_seconds, message):
+def test_time_in_seconds_value_error(time_in_seconds, message):
     with raises(ValueError, match=message):
-        TimeInSeconds(time_in_seconds=time_in_seconds)
+        translate_from_seconds(time_in_seconds)
 
 
 @mark.parametrize(
