@@ -1,0 +1,5 @@
+from regular_expressions.phones import get_phones_from_string
+from regular_expressions.substrings import replace_substrings
+from regular_expressions.cleaning import clean_string
+from regular_expressions.whitespaces import add_whitespaces, add_whitespaces_with_re
+from regular_expressions.ips import find_ip_in_string
