@@ -24,25 +24,36 @@ def add_whitespaces(entered_string: str) -> str:
         str: Resulting string.
     """
     check_value(entered_string)
-    new_string = entered_string
-    for char in AFTER:
-        new_string = new_string.replace(char + " ", char)
-        new_string = new_string.replace(char, char + " ")
-    new_string = new_string.replace(". . .", "...")
-    for char in BEFORE:
-        new_string = new_string.replace(" " + char, char)
-        new_string = new_string.replace(char, " " + char)
-    return new_string.strip()
+    index = 0
+    while index <= len(entered_string) - 1:
+        if entered_string[index] in AFTER and entered_string[index - 1] == " ":
+            entered_string = entered_string[:index - 1] + entered_string[index:]
+            index -= 1
+        elif entered_string[index] in BEFORE and entered_string[index - 1] != " ":
+            entered_string = entered_string[:index] + " " + entered_string[index:]
+            index += 1
+        if (
+            index != len(entered_string) - 1 and
+            entered_string[index] in AFTER and
+            entered_string[index + 1] != " " and
+            entered_string[index + 1] not in AFTER
+        ):
+            entered_string = entered_string[:index + 1] + " " + entered_string[index + 1:]
+            index += 1
+        elif entered_string[index] in BEFORE and entered_string[index + 1] == " ":
+            entered_string = entered_string[:index + 1] + entered_string[index + 2:]
+            index -= 1
+        index += 1
+    return entered_string.strip()
 
 
 def add_whitespaces_with_re(entered_string: str) -> str:
     check_value(entered_string)
     new_string = entered_string
-    for char in AFTER:
-        new_string = sub(escape(char) + r"(\s*)", char + " ", new_string)
-    new_string = sub(r"\. \. \.", "...", new_string)
-    for char in BEFORE:
-        new_string = sub(r"(\s*)" + escape(char), " " + char, new_string)
+    new_string = sub(r" ([.,:;?!)\]}])", r"\1", new_string)
+    new_string = sub(r"([(\[{]) ", r"\1", new_string)
+    new_string = sub(r"([.,:;?!)\]}]|\.\.\.)(\w|[(\[{])", r"\1 \2", new_string)
+    new_string = sub(r"(\w)([(\[{])", r"\1 \2", new_string)
     return new_string.strip()
 
 

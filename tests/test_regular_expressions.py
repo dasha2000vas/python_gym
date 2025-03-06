@@ -128,7 +128,7 @@ def test_cleaning_value_error(entered_string):
         ),
         (
             "Hello,(world)!How[are]you?",
-            "Hello, (world) ! How [are] you?",
+            "Hello, (world)! How [are] you?",
         ),
         (
             "This is a test",
@@ -137,6 +137,10 @@ def test_cleaning_value_error(entered_string):
         (
             "Wait...What?",
              "Wait... What?"
+        ),
+        (
+            "Enter( string ) :I'm in( bad )mood . . .Why ?",
+            "Enter (string): I'm in (bad) mood... Why?"
         )
     ]
 )
